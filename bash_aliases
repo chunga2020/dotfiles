@@ -1,0 +1,4 @@
+alias cls='rm ~/.bash_history; reset'
+alias open='xdg-open'
+alias lilypond='/usr/bin/lilypond'
+alias ..='cd ../'
