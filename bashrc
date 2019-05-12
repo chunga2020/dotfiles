@@ -115,3 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+mcd () {
+    mkdir -p $1
+    cd $1
+}
