@@ -121,3 +121,10 @@ mcd () {
     mkdir -p $1
     cd $1
 }
+
+cls () {
+    if [ -f ~/.bash_history ]; then
+        rm ~/.bash_history
+    fi
+    reset
+}
