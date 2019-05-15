@@ -128,5 +128,3 @@ cls () {
     fi
     reset
 }
-
-export PYTHONPATH=$PYTHONPATH:"/home/andrew/.local/lib/python3.6/site-packages"
