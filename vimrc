@@ -48,6 +48,9 @@ nnoremap Y y$
 nnoremap <localleader>ev :badd ~/.vimrc<cr>:bn<cr>
 nnoremap <localleader>sv :so ~/.vimrc<cr>
 
+nnoremap <Tab> :bn<cr>
+nnoremap <S-Tab> :bp<cr>
+
 nnoremap j gj
 nnoremap k gk
 
