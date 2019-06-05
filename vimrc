@@ -66,6 +66,12 @@ nnoremap <Right> <nop>
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 
+if &term =~ "xterm"
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
+
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
