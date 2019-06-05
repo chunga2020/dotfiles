@@ -32,7 +32,9 @@ set statusline=%f
 " filetype
 set statusline+=\ %y
 " read-only
-set statusline+=\ %r
+set statusline+=%r
+" file format (ending type)
+set statusline+=[%{&ff}]
 " modified and buffer number
 set statusline+=[%M%n]\ \ \ \ 
 " current line and column
