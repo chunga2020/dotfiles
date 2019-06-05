@@ -27,18 +27,25 @@ set backspace=2
 
 " persistent statusline
 set laststatus=2
+
 " filename
 set statusline=%f
+
 " filetype
 set statusline+=\ %y
+
 " read-only
 set statusline+=%r
+
 " file format (ending type)
 set statusline+=[%{&ff}]
+
 " modified and buffer number
 set statusline+=[%M%n]\ \ \ \ 
+
 " current line and column
 set statusline+=%=%l.%c\ 
+
 " percent of file
 set statusline+=\ \ \ \ %p%%\ 
 
