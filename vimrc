@@ -4,6 +4,8 @@ set formatoptions=tcq
 set textwidth=80
 set wrap
 
+set nomodeline
+
 set autoindent
 set smartindent
 set tabstop=4
