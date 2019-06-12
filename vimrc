@@ -107,3 +107,19 @@ augroup filetype lilypond
     autocmd FileType lilypond setlocal makeprg='/usr/bin/lilypond'
     autocmd BufNewFile *.ly call CreateLilyHeader()
 augroup END
+
+function! Prose()
+    iabbrev <buffer> -- –
+    iabbrev <buffer> --- —
+    setlocal formatoptions=ant
+    setlocal noautoindent
+    setlocal nosmartindent
+endfunction
+
+function! ProseOff()
+    unabbreviate --
+    unabbreviate ---
+    setlocal formatoptions=tcq
+    setlocal autoindent
+    setlocal smartindent
+endfunction
