@@ -108,18 +108,21 @@ augroup filetype lilypond
     autocmd BufNewFile *.ly call CreateLilyHeader()
 augroup END
 
+let b:proseOn = 0
 function! Prose()
-    iabbrev <buffer> -- –
-    iabbrev <buffer> --- —
-    setlocal formatoptions=ant
-    setlocal noautoindent
-    setlocal nosmartindent
-endfunction
-
-function! ProseOff()
-    unabbreviate --
-    unabbreviate ---
-    setlocal formatoptions=tcq
-    setlocal autoindent
-    setlocal smartindent
+    if b:proseOn
+        setlocal nospell
+        setlocal formatoptions=tcq
+        setlocal autoindent
+        setlocal smartindent
+        let b:proseOn = 0
+    else
+        iabbrev <buffer> -- –
+        iabbrev <buffer> --- —
+        setlocal spell spelllang=en_us
+        setlocal formatoptions=ant
+        setlocal noautoindent
+        setlocal nosmartindent
+        let b:proseOn = 1
+    endif
 endfunction
