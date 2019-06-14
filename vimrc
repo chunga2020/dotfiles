@@ -1,4 +1,5 @@
 set confirm
+set title
 
 set formatoptions=tcq
 set textwidth=80
