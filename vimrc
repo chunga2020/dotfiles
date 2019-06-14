@@ -123,6 +123,7 @@ function! Prose()
         setlocal formatoptions=ant
         setlocal noautoindent
         setlocal nosmartindent
+        call textobj#sentence#init()
         let b:proseOn = 1
     endif
 endfunction
