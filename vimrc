@@ -128,3 +128,7 @@ function! Prose()
         let b:proseOn = 1
     endif
 endfunction
+
+function! RemoveExtraSpaces()
+    :%s/ \{2,}/ /gc
+endfunction
