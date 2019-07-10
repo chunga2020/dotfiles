@@ -23,6 +23,8 @@ set hlsearch
 set ignorecase
 set incsearch
 
+set history=25
+
 set foldmethod=indent
 set foldlevelstart=20
 
