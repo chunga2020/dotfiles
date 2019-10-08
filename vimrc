@@ -68,6 +68,8 @@ nnoremap <S-Tab> :bp<cr>
 nnoremap j gj
 nnoremap k gk
 
+inoremap jj <Esc>
+
 nnoremap p ]p
 nnoremap P ]P
 
