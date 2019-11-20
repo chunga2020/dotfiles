@@ -18,7 +18,7 @@ for pack in $packs; do
 done
 
 # list of files/folders to symlink
-stow -v -t $home top
-stow -v -t $home vim
+stow -v --dotfiles -t $home top
+stow -v --dotfiles -t $home vim
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
