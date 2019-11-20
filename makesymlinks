@@ -1,0 +1,24 @@
+#!/bin/bash
+############################
+# .make.sh
+# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+############################
+
+########## Variables
+
+dir=~/dotfiles                    # dotfiles directory
+olddir=~/dotfiles_old             # old dotfiles backup directory
+home=~
+i3dir=$home/.config/i3
+i3sdir=$home/.config/i3status
+
+packs="i3 i3status top vim"
+for pack in $packs; do
+    cp -Rv $pack $olddir
+done
+
+# list of files/folders to symlink
+stow -v -t $home top
+stow -v -t $home vim
+stow -v -t $i3dir i3
+stow -v -t $i3sdir i3status
