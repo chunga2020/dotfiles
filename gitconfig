@@ -2,4 +2,4 @@
 	name = Andrew Chung
 	email = andrewtc4@gmail.com
 [core]
-	editor = vi
+	editor = vim
