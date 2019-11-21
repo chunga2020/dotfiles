@@ -12,6 +12,11 @@ home=~
 i3dir=$home/.config/i3
 i3sdir=$home/.config/i3status
 
+echo "Changing to $dir..."
+# Doesn't matter where we are in the moment
+pushd $dir
+echo -e "...Done\n"
+
 packs="i3 i3status top vim"
 for pack in $packs; do
     cp -Rv $pack $olddir
@@ -22,3 +27,7 @@ stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
+
+echo -e "\nGoing back to previous dir..."
+popd
+echo "...Done"
