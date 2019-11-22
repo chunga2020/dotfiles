@@ -82,10 +82,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Web"
-set $ws2 "2: Term"
-set $ws3 "3: Media"
-set $ws4 "4: Other"
+set $ws1 "1:Web"
+set $ws2 "2:Term"
+set $ws3 "3:Media"
+set $ws4 "4:Other"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -155,6 +155,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+
+        strip_workspace_numbers yes
 }
 
 bindsym $mod+Shift+x exec i3lock
