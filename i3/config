@@ -120,6 +120,12 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# easy workspace switching
+# n for "n"ext
+# p for "p"revious
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
 # assign common apps to workspaces
 assign [class="Firefox"] $ws1
 assign [class="terminal"] $ws2
