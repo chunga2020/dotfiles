@@ -4,6 +4,19 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
+# Check for GNU stow
+
+command -v stow
+stow_exists=$?
+
+if [ $stow_exists -eq 1 ]; then
+    echo "GNU stow not found in PATH. This script relies on that utility."
+    echo "Please install it."
+    exit 1
+fi
+
+# If we get here, we're good
+
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
