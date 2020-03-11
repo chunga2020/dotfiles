@@ -116,7 +116,6 @@ augroup END
 
 function! Code()
     setlocal nospell
-    setlocal formatoptions=tcq
     setlocal autoindent
     setlocal smartindent
 endfunction
@@ -125,7 +124,6 @@ command -nargs=0 Code call Code()
 
 function Prose()
     setlocal spell spelllang=en_us
-    setlocal formatoptions=ant
     setlocal noautoindent
     setlocal nosmartindent
     call textobj#sentence#init()
