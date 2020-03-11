@@ -12,6 +12,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set updatetime=100
 
 set number numberwidth=2
 set relativenumber
