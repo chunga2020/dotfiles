@@ -58,7 +58,7 @@ fi
 
 prompt_lines=(
 "${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\n\u\[\033[00m\]:\[\033[01;34m\]"
-"\W\[\033[00m\]\n\A \$")
+"\W\[\033[00m\]\n\A\$ ")
 if [ "$color_prompt" = yes ]; then
     PS1="${prompt_lines[*]}"
 else
