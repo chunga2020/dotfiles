@@ -82,6 +82,10 @@ nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
 
 if &term =~ "xterm"
     let &t_SI = "\<Esc>[6 q"
@@ -135,3 +139,5 @@ command -nargs=0 Prose call Prose()
 function! RemoveExtraSpaces()
     :%s/ \{2,}/ /gc
 endfunction
+
+autocmd VimEnter * call histdel("cmd")
