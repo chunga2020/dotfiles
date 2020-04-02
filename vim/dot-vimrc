@@ -158,4 +158,5 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 call plug#end()
