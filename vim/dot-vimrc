@@ -147,3 +147,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'dkarter/bullets.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'lervag/vimtex'
+Plug 'mattn/emmet-vim'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+call plug#end()
