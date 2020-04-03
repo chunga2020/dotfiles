@@ -151,6 +151,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'dkarter/bullets.vim'
+Plug 'godlygeek/tabular'
 Plug 'kana/vim-textobj-user'
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
