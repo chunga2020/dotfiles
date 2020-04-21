@@ -163,3 +163,4 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 let g:indentLine_fileTypeExclude = ['markdown', 'tex']
+let g:bullets_enabled_file_types = ['markdown', 'tex', 'text', 'gitcommit']
