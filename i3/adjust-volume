@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Simple wrapper to adjust and show volume in i3
+# Usage:
+#     adjust-volume <action>
+# Actions:
+#     -d -- decrease volume
+#     -i -- increase volume
+#     -m -- toggle muting
+
+usage () {
+    echo "adjust-volume <action>"
+    echo "Actions:"
+    echo "    -d -- decrease volume"
+    echo "    -i -- increase volume"
+    echo "    -m -- toggle muting"
+}
+
+send_vol_notif () {
+    notify-send "$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 | cut -d'/' -f2 | awk '{$1=$1; print}')"
+}
+
+send_mute_notif () {
+    muted=$(pactl list sinks | grep Mute | awk '{print $NF}')
+    msg=""
+    if [[ $muted = "no" ]]; then
+        msg="Unmuted"
+    else
+        msg="Muted"
+    fi
+    notify-send $msg
+}
+
+if [[ $# -ne 1 ]]; then
+    echo "Missing action."
+    usage
+    exit 1
+fi
+
+action=$1
+case "$action" in
+    "-d")
+        echo "Decrease"
+        pactl set-sink-volume 0 -5%
+        send_vol_notif
+        ;;
+    "-i")
+        echo "Increase"
+        pactl set-sink-volume 0 +5%
+        send_vol_notif
+        ;;
+    "-m")
+        pactl set-sink-mute 0 toggle
+        send_mute_notif
+        ;;
+    *)
+        usage
+        ;;
+esac
