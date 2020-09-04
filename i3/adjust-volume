@@ -17,18 +17,19 @@ usage () {
 }
 
 send_vol_notif () {
-    notify-send "$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 | cut -d'/' -f2 | awk '{$1=$1; print}')"
+    vol_level=$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 | cut -d'/' -f2 | awk '{$1=$1; print}')
+    notify-send "Volume $vol_level"
 }
 
 send_mute_notif () {
     muted=$(pactl list sinks | grep Mute | awk '{print $NF}')
     msg=""
     if [[ $muted = "no" ]]; then
-        msg="Unmuted"
+        msg="Volume unmuted"
     else
-        msg="Muted"
+        msg="Volume muted"
     fi
-    notify-send $msg
+    notify-send "$msg"
 }
 
 if [[ $# -ne 1 ]]; then
