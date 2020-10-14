@@ -24,6 +24,8 @@ set hlsearch
 set ignorecase
 set incsearch
 
+set listchars=eol:~,tab:>.,trail:!,space:.
+
 set history=25
 
 set foldmethod=indent
