@@ -28,7 +28,7 @@ set listchars=eol:~,tab:>.,trail:!,space:.
 
 set history=25
 
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevelstart=20
 
 set backspace=2
