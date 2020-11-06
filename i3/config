@@ -201,5 +201,4 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Screenshot via scrot
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
-exec_always --no-startup-id "setxkbmap -option compose:caps"
-exec_always --no-startup-id "setxkbmap -option shift:both_capslock"
+exec_always --no-startup-id "setxkbmap -option compose:caps -option shift:both_capslock"
