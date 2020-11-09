@@ -118,6 +118,10 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+augroup filetype tex
+    autocmd FileType tex setlocal foldmethod=indent
+augroup END
+
 function! Code()
     setlocal nospell
     setlocal autoindent
