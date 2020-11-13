@@ -47,8 +47,15 @@ case "$action" in
         ;;
     "-i")
         echo "Increase"
-        pactl set-sink-volume 0 +5%
-        send_vol_notif
+        vol_level=$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 |
+            cut -d'/' -f2 | cut -d'%' -f1 | awk '{$1=$1; print}')
+        echo $vol_level
+        if [[ $vol_level -lt 100 ]]; then
+            pactl set-sink-volume 0 +5%
+            send_vol_notif
+        else
+            notify-send "Maximum volume reached"
+        fi
         ;;
     "-m")
         pactl set-sink-mute 0 toggle
