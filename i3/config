@@ -202,3 +202,17 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 exec_always --no-startup-id "setxkbmap -option compose:caps -option shift:both_capslock"
+
+smart_borders on
+for_window [class=".*"] border pixel 5
+gaps inner 20
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #c00000 #c00000 #ffffff #c00000   #c00000
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
