@@ -8,6 +8,8 @@
 #     -i -- increase volume
 #     -m -- toggle muting
 
+notif_cmd="notify-send --hint=int:transient:1 -t 250"
+
 usage () {
     echo "adjust-volume <action>"
     echo "Actions:"
@@ -18,7 +20,7 @@ usage () {
 
 send_vol_notif () {
     vol_level=$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 | cut -d'/' -f2 | awk '{$1=$1; print}')
-    notify-send "Volume $vol_level"
+    $notif_cmd "Volume $vol_level"
 }
 
 send_mute_notif () {
@@ -29,7 +31,7 @@ send_mute_notif () {
     else
         msg="Volume muted"
     fi
-    notify-send "$msg"
+    $notif_cmd "$msg"
 }
 
 if [[ $# -ne 1 ]]; then
