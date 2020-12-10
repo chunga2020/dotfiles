@@ -8,7 +8,7 @@
 #     -i -- increase volume
 #     -m -- toggle muting
 
-notif_cmd="notify-send --hint=int:transient:1 -t 250"
+notif_cmd="notify-send --hint=int:transient:1 -t 700"
 
 usage () {
     echo "adjust-volume <action>"
