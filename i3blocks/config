@@ -47,7 +47,7 @@ signal=10
 [memory]
 label=MEM 
 separator=false
-interval=15
+interval=5
 
 # Disk usage
 #
