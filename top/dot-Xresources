@@ -1,0 +1,10 @@
+XTerm*faceName: DefaVu Sans Mono Book
+XTerm*faceSize: 11
+
+XTerm*loginshell: false
+
+XTerm*foreground: rgb:ff/ff/ff
+XTerm*background: rgb:00/00/00
+XTerm*termName: xterm-256color
+XTerm*locale: false
+XTerm*utf8: true
