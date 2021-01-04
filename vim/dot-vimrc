@@ -27,6 +27,7 @@ set incsearch
 set listchars=eol:~,tab:>.,trail:!,space:.
 
 set history=25
+set viminfofile="NONE"
 
 set foldmethod=syntax
 set foldlevelstart=20
