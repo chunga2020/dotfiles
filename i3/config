@@ -214,3 +214,4 @@ client.background       #ffffff
 
 exec xrdb ~/.Xresources
 exec ~/.fehbg
+exec /usr/lib/notification-daemon-1.0/notification-daemon
