@@ -25,13 +25,14 @@ home=/home/$USER
 i3dir=$home/.config/i3
 i3bdir=$home/.config/i3blocks
 i3sdir=$home/.config/i3status
+rofidir=$home/.config/rofi
 
 echo "Changing to $dir..."
 # Doesn't matter where we are in the moment
 pushd $dir
 echo -e "...Done\n"
 
-packs="i3 i3blocks i3status top vim"
+packs="i3 i3blocks i3status rofi top vim"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
@@ -39,6 +40,7 @@ done
 # list of files/folders to symlink
 stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
+stow -v -t $rofidir rofi
 stow -v -t $i3bdir i3blocks
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
