@@ -100,7 +100,6 @@ min_width=CPU 100%
 [battery]
 label=⚡
 interval=30
-BAT_NUMBER=1
 
 # Date Time
 #
