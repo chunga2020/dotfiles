@@ -209,4 +209,4 @@ client.background       #ffffff
 exec xrdb ~/.Xresources
 exec numlockx
 exec ~/.fehbg
-exec /usr/lib/notification-daemon-1.0/notification-daemon
+exec "xterm -e ~/bin/arch-upgrade-reminder"
