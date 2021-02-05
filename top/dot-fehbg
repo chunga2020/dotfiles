@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/andrew//Pictures/bliss.jpg'
+feh --no-fehbg --bg-scale --randomize /usr/share/backgrounds/*
