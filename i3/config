@@ -184,8 +184,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set +10% # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%- # decrease screen brightness
+bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
+bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease screen brightness
 
 # Screenshot via scrot
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
