@@ -26,13 +26,14 @@ i3dir=$home/.config/i3
 i3bdir=$home/.config/i3blocks
 i3sdir=$home/.config/i3status
 rofidir=$home/.config/rofi
+zathuradir=$home/.config/zathura
 
 echo "Changing to $dir..."
 # Doesn't matter where we are in the moment
 pushd $dir
 echo -e "...Done\n"
 
-packs="i3 i3blocks i3status rofi top vim"
+packs="i3 i3blocks i3status rofi top vim zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
@@ -44,6 +45,7 @@ stow -v -t $rofidir rofi
 stow -v -t $i3bdir i3blocks
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
+stow -v -t $zathuradir zathura
 
 echo -e "\nGoing back to previous dir..."
 popd
