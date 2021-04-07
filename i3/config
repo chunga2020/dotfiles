@@ -195,8 +195,11 @@ exec_always --no-startup-id "setxkbmap -option compose:caps -option shift:both_c
 
 smart_borders on
 for_window [class=".*"] border pixel 5
-for_window [class=".*"] floating disable
 gaps inner 15
+
+# Scratchpad
+for_window [class=xterm instance="__text_scratchpad"] floating enable
+bindsym $mod+g exec text-scratchpad
 
 # Colors
 # class                 border  backgr. text    indicator child_border
