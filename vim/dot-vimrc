@@ -158,6 +158,7 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+Plug 'gabrielelana/vim-markdown'
 call plug#end()
 
 let g:indentLine_fileTypeExclude = ['markdown', 'tex']
