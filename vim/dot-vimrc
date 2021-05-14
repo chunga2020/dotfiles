@@ -15,7 +15,6 @@ set expandtab
 set updatetime=100
 
 set number numberwidth=2
-set relativenumber
 set cmdheight=2
 
 set linebreak
@@ -113,12 +112,6 @@ augroup filetype lilypond
     autocmd BufNewFile *.ly call CreateLilyHeader()
 augroup END
 
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 augroup filetype tex
     autocmd FileType tex setlocal foldmethod=indent
     autocmd FileType tex inoremap $ $$<Left>
@@ -165,6 +158,7 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+Plug 'gabrielelana/vim-markdown'
 call plug#end()
 
 let g:indentLine_fileTypeExclude = ['markdown', 'tex']

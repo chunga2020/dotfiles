@@ -19,18 +19,21 @@ fi
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-home=~
+dir=/home/$USER/dotfiles                    # dotfiles directory
+olddir=/home/$USER/dotfiles_old             # old dotfiles backup directory
+home=/home/$USER
 i3dir=$home/.config/i3
+i3bdir=$home/.config/i3blocks
 i3sdir=$home/.config/i3status
+rofidir=$home/.config/rofi
+zathuradir=$home/.config/zathura
 
 echo "Changing to $dir..."
 # Doesn't matter where we are in the moment
 pushd $dir
 echo -e "...Done\n"
 
-packs="i3 i3status top vim"
+packs="i3 i3blocks i3status rofi top vim zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
@@ -38,8 +41,11 @@ done
 # list of files/folders to symlink
 stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
+stow -v -t $rofidir rofi
+stow -v -t $i3bdir i3blocks
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
+stow -v -t $zathuradir zathura
 
 echo -e "\nGoing back to previous dir..."
 popd

@@ -3,3 +3,7 @@
 	email = andrewtc4@gmail.com
 [core]
 	editor = vim
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

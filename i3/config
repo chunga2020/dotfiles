@@ -30,19 +30,13 @@ font pango:DejaVu Sans Mono 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-bindsym Super_L exec dmenu_run
-bindsym Super_R exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start rofi (a program launcher)
+bindsym --release $mod+d exec rofi -modi combi -show combi -combi-modi run#drun
 
 # change focus
 bindsym $mod+j focus left
@@ -89,7 +83,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -138,8 +132,8 @@ bindsym $mod+p workspace prev
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "rofi -modi power-menu:'rofi-power-menu \
+--choices=logout/shutdown/reboot' -show power-menu -width 10 -lines 4"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -171,7 +165,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        position top
+        status_command i3blocks
 
         strip_workspace_numbers yes
 }
@@ -190,10 +185,34 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
+bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease screen brightness
 
 # Screenshot via scrot
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 exec_always --no-startup-id "setxkbmap -option compose:caps -option shift:both_capslock"
+
+smart_borders on
+for_window [class=".*"] border pixel 5
+gaps inner 15
+
+# Scratchpad
+for_window [class=xterm instance="__text_scratchpad"] floating enable
+bindsym $mod+g exec text-scratchpad
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #c00000 #c00000 #ffffff #c00000   #c00000
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+exec xrdb ~/.Xresources
+exec numlockx
+exec ~/.fehbg
+exec /usr/lib/notification-daemon-1.0/notification-daemon
+exec "xterm -e ~/bin/arch-upgrade-reminder"
