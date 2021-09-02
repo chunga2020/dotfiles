@@ -96,22 +96,6 @@ function! ClearSearch()
     let @/=""
 endfunction
 
-function! CreateLilyHeader()
-    call append(0, '\version "2.18.2"')
-    call append(1, '\language "english"')
-    call append(2, '\pointAndClickOff')
-    call append(3, "")
-endfunction
-
-augroup filetype lilypond
-    autocmd!
-    autocmd FileType lilypond setlocal tabstop=2
-    autocmd FileType lilypond setlocal shiftwidth=2
-    autocmd FileType lilypond inoremap <buffer> < <><Left>
-    autocmd FileType lilypond setlocal makeprg='/usr/bin/lilypond'
-    autocmd BufNewFile *.ly call CreateLilyHeader()
-augroup END
-
 augroup filetype tex
     autocmd FileType tex setlocal foldmethod=indent
     autocmd FileType tex inoremap $ $$<Left>
