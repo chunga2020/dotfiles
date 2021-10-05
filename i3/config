@@ -36,7 +36,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym --release $mod+d exec rofi -modi combi -show combi -combi-modi run#drun
+bindsym --release $mod+d exec rofi -modi run#drun -show run
 
 # change focus
 bindsym $mod+j focus left
