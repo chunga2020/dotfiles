@@ -128,6 +128,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
+# moving windows to adjacent workspaces with n and p, as above
+bindsym $mod+Shift+n move workspace next
+bindsym $mod+Shift+p move workspace prev
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
