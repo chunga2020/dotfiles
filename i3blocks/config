@@ -26,7 +26,8 @@
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
 command=~/dotfiles/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=20
+color=#FFFFFF
 markup=none
 
 # Volume indicator
@@ -37,7 +38,7 @@ markup=none
 
 [volume]
 label=🔊
-interval=5
+interval=-2
 signal=10
 #STEP=5%
 
@@ -45,7 +46,7 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM 
+label=MEM
 separator=false
 interval=5
 
@@ -55,12 +56,12 @@ interval=5
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=/: 
+label=/:
 instance=/
 interval=30
 
 [disk]
-label=~: 
+label=~:
 instance=/home/andrew
 interval=30
 
@@ -75,7 +76,7 @@ interval=10
 separator=false
 
 [wifi]
-INTERFACE=wlp0s20f3
+#INTERFACE=wlp0s20f3
 label=:
 interval=10
 separator=false
@@ -89,7 +90,7 @@ interval=5
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU 
+label=CPU
 interval=10
 min_width=CPU 100%
 #separator=false

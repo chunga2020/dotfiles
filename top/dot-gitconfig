@@ -2,8 +2,10 @@
 	name = Andrew Chung
 	email = andrewtc4@gmail.com
 [core]
-	editor = vim
+	editor = emacsclient
 [init]
 	defaultBranch = main
 [pull]
 	rebase = true
+[alias]
+	sw = switch
