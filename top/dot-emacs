@@ -156,7 +156,7 @@
 ;; treemacs setup
 (require 'treemacs)
 (setq treemacs-no-png-images t)         ; no icons
-(global-set-key (kbd "C-x t t") 'treemacs)
+(global-set-key (kbd "C-x t t") 'treemacs-select-window)
 
 ;; winum setup
 (require 'winum)
