@@ -1,0 +1,174 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(custom-enabled-themes nil)
+ '(inhibit-startup-echo-area-message "andrew")
+ '(org-agenda-files '("~/.agenda.org"))
+ '(package-selected-packages
+   '(treemacs-magit ## angular-snippets yasnippet writegood-mode winum treemacs
+   lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex
+   typescript-mode magit vterm smart-comment emms)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant
+ normal :weight normal :height 110 :width normal)))))
+
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
+
+;; Interface options
+(global-display-line-numbers-mode t)
+(line-number-mode t) ;; show line number in mode line
+(column-number-mode t) ;; show column number in mode line
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
+;; no gui toolbars or scrollbar
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+
+(setq-default fill-column 80) ;; Make <M-q> wrap at 80 columns
+
+;; Always add final newline to the end of a file
+(setq require-final-newline t)
+
+;; I typically use 4 spaces per tab
+(setq tab-width 4)
+(setq c-basic-offset 4)
+;; spaces > tabs
+(setq-default indent-tabs-mode nil)
+
+;; Automatic closing of matched delimiters; also provides overtype of
+;; auto-inserted closing symbols
+(electric-pair-mode t)
+(setq electric-pair-delete-adjacent-pairs t)
+
+
+;; Consolidation of backup files
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+
+;; org-mode setup
+(require 'org)
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "DONE")))
+(setq org-tag-alist '(("home" . ?h) ("school" . ?s) ("life" . ?l)))
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+;; ######################### Mode-specific Settings ############################
+
+(require 'lsp-mode)
+
+;; C mode
+(add-hook 'c-mode-hook 'company-mode)
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c-mode-hook 'lsp-mode)
+
+;; CSS mode
+(add-hook 'css-mode-hook 'company-mode)
+(add-hook 'css-mode-hook 'lsp-mode)
+
+;; C++ mode
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'lsp-mode)
+
+;; Dired mode
+(add-hook 'dired-mode-hook 'hl-line-mode)
+
+;; HTML mode
+(add-hook 'html-mode-hook 'emmet-mode)
+(add-hook 'html-mode-hook 'hs-minor-mode)
+(require 'angular-snippets)
+
+;; Lilypond mode
+(load-library "lilypond-mode")
+(add-to-list 'auto-mode-alist '("\\.ly\\'" . LilyPond-mode))
+(add-to-list 'auto-mode-alist '("\\.ily\\'" . LilyPond-mode))
+(add-hook 'lilypond-mode-hook 'hs-minor-mode)
+
+;; Ocaml
+(add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
+(add-hook 'tuareg-mode-hook 'lsp-mode)
+(add-hook 'caml-mode-hook 'lsp-mode)
+(add-hook 'tuareg-mode-hook 'company-mode)
+(add-hook 'caml-mode-hook 'company-mode)
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+      (when (and opam-share (file-directory-p opam-share))
+       ;; Register Merlin
+       (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+       (load "/home/andrew/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+       (autoload 'merlin-mode "merlin" nil t nil)
+       ;; Automatically start it in OCaml buffers
+       (add-hook 'tuareg-mode-hook 'merlin-mode t)
+       (add-hook 'caml-mode-hook 'merlin-mode t)
+       ;; Use opam switch to lookup ocamlmerlin binary
+       (setq merlin-command 'opam)))
+
+;; Python
+(add-hook 'python-mode-hook 'company-mode)
+(add-hook 'python-mode-hook 'hs-minor-mode)
+(add-hook 'python-mode-hook 'lsp-mode)
+
+;; Text mode
+;; Always hard-wrap text in text mode
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'flyspell-mode)
+
+;; Typescript mode
+(add-hook 'typescript-mode-hook 'company-mode)
+(add-hook 'typescript-mode-hook 'hs-minor-mode)
+(add-hook 'typescript-mode-hook 'lsp-mode)
+(add-hook 'typescript-mode-hook
+		  '(lambda()
+	     (setq typescript-indent-level 2)
+	     (setq indent-tabs-mode nil)))
+
+;; ################################ Packages ###################################
+
+;; Add MELPA to known package repos
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(require 'cl)
+
+;; emms setup
+(require 'emms-setup)
+(emms-all)
+(emms-default-players)
+(setq emms-source-file-default-directory "~/Music")
+(require 'emms-info-native)
+(add-to-list 'emms-info-functions 'emms-info-native)
+(require 'emms-playlist-sort)
+
+;; treemacs setup
+(require 'treemacs)
+(setq treemacs-no-png-images t)         ; no icons
+(global-set-key (kbd "C-x t t") 'treemacs)
+
+;; winum setup
+(require 'winum)
+(winum-mode)
+
+;; writegood setup
+(require 'writegood-mode)
+(global-set-key (kbd "C-c g") 'writegood-mode)
+(global-set-key (kbd "C-c C-g g") 'writegood-grade-level)
+(global-set-key (kbd "C-c C-g e") 'writegood-reading-ease)
+
+
+;; ######################## Enable disabled commands ###########################
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
