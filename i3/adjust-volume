@@ -41,23 +41,24 @@ if [[ $# -ne 1 ]]; then
 fi
 
 action=$1
+sink_num=$(pactl list sinks | head -n1 | cut -d'#' -f2)
 case "$action" in
     "-d")
-        pactl set-sink-volume 0 -5%
+        pactl set-sink-volume $sink_num -5%
         send_vol_notif
         ;;
     "-i")
         vol_level=$(pactl list sinks | grep Volume | head -n1 | cut -d':' -f3 |
             cut -d'/' -f2 | cut -d'%' -f1 | awk '{$1=$1; print}')
         if [[ $vol_level -lt 100 ]]; then
-            pactl set-sink-volume 0 +5%
+            pactl set-sink-volume $sink_num +5%
             send_vol_notif
         else
             notify-send "Maximum volume reached"
         fi
         ;;
     "-m")
-        pactl set-sink-mute 0 toggle
+        pactl set-sink-mute $sink_num toggle
         send_mute_notif
         ;;
     *)
