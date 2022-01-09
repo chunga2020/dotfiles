@@ -142,7 +142,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(require 'cl)
+(require 'cl-lib)
 
 ;; emms setup
 (require 'emms-setup)
