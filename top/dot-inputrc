@@ -3,6 +3,6 @@ set show-all-if-ambiguous on
 
 set bell-style visible
 
-set editing-mode vi
+set editing-mode emacs
 
 set show-mode-in-prompt on
