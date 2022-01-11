@@ -23,7 +23,6 @@ dir=/home/$USER/dotfiles                    # dotfiles directory
 olddir=/home/$USER/dotfiles_old             # old dotfiles backup directory
 home=/home/$USER
 i3dir=$home/.config/i3
-i3bdir=$home/.config/i3blocks
 i3sdir=$home/.config/i3status
 rofidir=$home/.config/rofi
 zathuradir=$home/.config/zathura
@@ -33,7 +32,7 @@ echo "Changing to $dir..."
 pushd $dir
 echo -e "...Done\n"
 
-packs="i3 i3blocks i3status rofi top vim zathura"
+packs="i3 i3status rofi top vim zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
@@ -42,7 +41,6 @@ done
 stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
 stow -v -t $rofidir rofi
-stow -v -t $i3bdir i3blocks
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
 stow -v -t $zathuradir zathura
