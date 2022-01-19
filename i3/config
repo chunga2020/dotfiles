@@ -201,6 +201,10 @@ exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_ca
 title_align center
 
 # Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Text Scratchpad
 for_window [class=emacs instance="__text_scratchpad"] floating enable
 bindsym $mod+g exec text-scratchpad
 
