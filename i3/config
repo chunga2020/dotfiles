@@ -224,7 +224,7 @@ exec ~/.fehbg
 exec /usr/bin/dunst
 exec "kitty ~/bin/arch-upgrade-reminder"
 exec "~/bin/get-news -b /usr/bin/brave -s 5 whdh.com wcvb.com reuters.com"
-exec "synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28"
+exec "synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28 TapButton1=0 TapButton2=0 tapbutton3=0"
 exec "emacs --daemon"
 exec "pulseaudio -k; pulseaudio -D"
 exec "~/bin/multihead-control"
