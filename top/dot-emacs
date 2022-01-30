@@ -13,17 +13,16 @@
  '(inhibit-startup-echo-area-message "andrew")
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
-   '(renpy solarized-theme treemacs-magit ## angular-snippets yasnippet
+   '(renpy solarized-theme treemacs-magit angular-snippets yasnippet
    writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg
-   arduino-mode lsp-mode auctex typescript-mode magit vterm smart-commnent
+   arduino-mode lsp-mode auctex typescript-mode magit vterm smart-comment
    emms)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight
- normal :height 110 :width normal)))))
+ '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal)))))
 
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
