@@ -7,129 +7,11 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(custom-enabled-themes nil)
- '(custom-safe-themes
-   '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" default))
  '(inhibit-startup-echo-area-message "andrew")
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
-   '(renpy solarized-theme treemacs-magit angular-snippets yasnippet
-   writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg
-   arduino-mode lsp-mode auctex typescript-mode magit vterm smart-comment
-   emms)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal)))))
+   '(magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
 
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
-
-;; Interface options
-(global-display-line-numbers-mode t)
-(line-number-mode t) ;; show line number in mode line
-(column-number-mode t) ;; show column number in mode line
-(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-(add-hook 'after-init-hook (lambda () (load-theme 'solarized-dark)))
-
-;; no gui toolbars or scrollbar
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
-(setq-default fill-column 80) ;; Make <M-q> wrap at 80 columns
-
-;; Always add final newline to the end of a file
-(setq require-final-newline t)
-
-;; I typically use 4 spaces per tab
-(setq tab-width 4)
-(setq c-basic-offset 4)
-;; spaces > tabs
-(setq-default indent-tabs-mode nil)
-
-;; Automatic closing of matched delimiters; also provides overtype of
-;; auto-inserted closing symbols
-(electric-pair-mode t)
-(setq electric-pair-delete-adjacent-pairs t)
-
-
-;; Consolidation of backup files
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
-;; org mode setup
-(load-file "~/.emacs.d/my-org-settings.el")
-
-;; ######################### Mode-specific Settings ############################
-
-(require 'lsp-mode)
-
-;; C mode
-(add-hook 'c-mode-hook 'company-mode)
-(add-hook 'c-mode-hook 'hs-minor-mode)
-(add-hook 'c-mode-hook 'lsp-mode)
-
-;; CSS mode
-(add-hook 'css-mode-hook 'company-mode)
-(add-hook 'css-mode-hook 'lsp-mode)
-
-;; C++ mode
-(add-hook 'c++-mode-hook 'company-mode)
-(add-hook 'c++-mode-hook 'hs-minor-mode)
-(add-hook 'c++-mode-hook 'lsp-mode)
-
-;; Dired mode
-(add-hook 'dired-mode-hook 'hl-line-mode)
-
-;; HTML mode
-(add-hook 'html-mode-hook 'emmet-mode)
-(add-hook 'html-mode-hook 'hs-minor-mode)
-(require 'angular-snippets)
-
-;; Lilypond mode
-(load-library "lilypond-mode")
-(add-to-list 'auto-mode-alist '("\\.ly\\'" . LilyPond-mode))
-(add-to-list 'auto-mode-alist '("\\.ily\\'" . LilyPond-mode))
-(add-hook 'lilypond-mode-hook 'hs-minor-mode)
-
-;; Ocaml
-(add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
-(add-hook 'tuareg-mode-hook 'lsp-mode)
-(add-hook 'caml-mode-hook 'lsp-mode)
-(add-hook 'tuareg-mode-hook 'company-mode)
-(add-hook 'caml-mode-hook 'company-mode)
-(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
-      (when (and opam-share (file-directory-p opam-share))
-       ;; Register Merlin
-       (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-       (load "/home/andrew/.opam/default/share/emacs/site-lisp/tuareg-site-file")
-       (autoload 'merlin-mode "merlin" nil t nil)
-       ;; Automatically start it in OCaml buffers
-       (add-hook 'tuareg-mode-hook 'merlin-mode t)
-       (add-hook 'caml-mode-hook 'merlin-mode t)
-       ;; Use opam switch to lookup ocamlmerlin binary
-       (setq merlin-command 'opam)))
-
-;; Python
-(add-hook 'python-mode-hook 'company-mode)
-(add-hook 'python-mode-hook 'hs-minor-mode)
-(add-hook 'python-mode-hook 'lsp-mode)
-
-;; Text mode
-;; Always hard-wrap text in text mode
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'flyspell-mode)
-
-;; Typescript mode
-(add-hook 'typescript-mode-hook 'company-mode)
-(add-hook 'typescript-mode-hook 'hs-minor-mode)
-(add-hook 'typescript-mode-hook 'lsp-mode)
-(add-hook 'typescript-mode-hook
-		  '(lambda()
-	     (setq typescript-indent-level 2)
-	     (setq indent-tabs-mode nil)))
 
 ;; ################################ Packages ###################################
 
@@ -139,6 +21,21 @@
 (package-initialize)
 
 (require 'cl-lib)
+
+;; browse-kill-ring setup
+(use-package browse-kill-ring
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c k") 'browse-kill-ring))
+
+;; company autocomplete everywhere
+(require 'company)
+(global-company-mode)
+(use-package company
+  :config
+  (setq company-idle-delay 0.1
+        company-dabbrev-downcase nil
+        company-minimum-prefix-length 6))
 
 ;; emms setup
 (require 'emms-setup)
@@ -165,6 +62,163 @@
 (global-set-key (kbd "C-c C-g e") 'writegood-reading-ease)
 
 
+
+
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
+
+;; Interface options
+(line-number-mode t) ;; show line number in mode line
+(column-number-mode t) ;; show column number in mode line
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'hl-line-mode)
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(add-hook 'text-mode-hook #'hl-line-mode)
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
+(add-hook 'text-mode-hook #'flyspell-mode)
+(setq ispell-personal-dictionary "~/.ispell_american")
+
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono-12"))
+
+;; no gui toolbars or scrollbar
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+
+(setq-default fill-column 80) ;; Make <M-q> wrap at 80 columns
+
+;; Always add final newline to the end of a file
+(setq require-final-newline t)
+
+;; I typically use 4 spaces per tab
+(setq tab-width 4)
+(setq c-basic-offset 4)
+;; spaces > tabs
+(setq-default indent-tabs-mode nil)
+
+;; Automatic closing of matched delimiters; also provides overtype of
+;; auto-inserted closing symbols
+(electric-pair-mode t)
+(setq electric-pair-delete-adjacent-pairs t)
+
+(show-paren-mode t)
+
+
+;; Consolidation of backup files
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+;; ######################### Mode-specific Settings ############################
+
+;; C mode
+(use-package c
+  :hook
+  (c-mode . hs-minor-mode)
+  (c-mode . lsp-mode)
+)
+
+;; CSS mode
+(use-package c
+  :hook
+  (css-mode . lsp-mode)
+)
+
+;; C++ mode
+(use-package c++
+  :hook
+  (c++-mode . hs-minor-mode)
+  (c++-mode . lsp-mode))
+
+;; Dired mode
+(use-package dired
+  :hook
+  (dired-mode . hl-line-mode)
+)
+
+;; HTML mode
+(use-package html-mode
+  :hook
+  (html-mode . emmet-mode)
+  (html-mode . hs-minor-mode)
+)
+
+;; Ocaml
+(add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
+(add-hook 'tuareg-mode-hook 'lsp-mode)
+(add-hook 'caml-mode-hook 'lsp-mode)
+(add-hook 'tuareg-mode-hook 'company-mode)
+(add-hook 'caml-mode-hook 'company-mode)
+(add-hook 'tuareg-mode-hook 'merlin-mode)
+(add-hook 'caml-mode-hook 'merlin-mode)
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+      (when (and opam-share (file-directory-p opam-share))
+       ;; Register Merlin
+       (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+       (load "/home/andrew/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+       (autoload 'merlin-mode "merlin" nil t nil)
+       ;; Automatically start it in OCaml buffers
+       (add-hook 'tuareg-mode-hook 'merlin-mode t)
+       (add-hook 'caml-mode-hook 'merlin-mode t)
+       ;; Use opam switch to lookup ocamlmerlin binary
+       (setq merlin-command 'opam)))
+(use-package tuareg
+  :ensure t
+  :hook
+  (tuareg-mode . utop-minor-mode))
+
+;; Python
+(use-package lsp-jedi
+  :ensure t
+  :init
+  (setq jedi:complete-on-dot t)
+  :config
+  (with-eval-after-load "lsp-mode"
+    (add-to-list 'lsp-enabled-clients 'jedi)))
+(use-package python
+  :hook
+  (python-mode . hs-minor-mode)
+  (python-mode . lsp-mode))
+
+;; Text mode
+(use-package text
+  :hook
+  ;; Always hard-wrap text in text mode
+  (text-mode . turn-on-auto-fill)
+  (text-mode . flyspell-mode))
+
+;; Typescript mode
+(use-package typescript-mode
+  :ensure t
+  :hook
+  (typescript-mode . hs-minor-mode)
+  (typescript-mode . lsp-mode)
+  :init
+  (setq typescript-indent-level 2)
+  (setq indent-tabs-mode nil))
+
 ;; ######################## Enable disabled commands ###########################
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
+;; ############################# Useful functions ##############################
+
+(defun start-vterm-with-name (&optional split-lines)
+  "Prompt for a split type and name, and start a new vterm buffer.
+If split-lines is supplied, resize the new window using `shrink-window'."
+  (interactive "p")
+  (setq horizontal-p (y-or-n-p "Horizontal split? "))
+  (if horizontal-p
+      (split-window-horizontally)
+    (split-window-vertically))
+  (other-window 1)
+  (if split-lines
+      (shrink-window split-lines horizontal-p)) ; delta value is unimportant.
+                                                ; Just pass it along and let
+                                                ; shrink-window handle it
+  (vterm (read-from-minibuffer "Enter name for the new terminal buffer: ")))
+
+;; ################################# Keybinds ##################################
+
+(global-unset-key (kbd "<menu>"))
+(global-set-key (kbd "C-x M-t") 'transpose-sentences)

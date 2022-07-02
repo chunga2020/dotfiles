@@ -2,7 +2,7 @@
 	name = Andrew Chung
 	email = andrewtc4@gmail.com
 [core]
-	editor = emacsclient
+	editor = emacsclient -c
 [init]
 	defaultBranch = main
 [pull]
