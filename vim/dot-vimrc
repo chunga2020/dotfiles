@@ -1,7 +1,8 @@
+vim9script
+
 set confirm
 set title
 
-set formatoptions=tcq
 set textwidth=80
 set wrap
 
@@ -32,31 +33,31 @@ set foldlevelstart=20
 
 set backspace=2
 
-" persistent statusline
+# persistent statusline
 set laststatus=2
 
-" filename
+# filename
 set statusline=%f
 
-" filetype
+# filetype
 set statusline+=\ %y
 
-" read-only
+# read-only
 set statusline+=%r
 
-" file format (ending type)
+# file format (ending type)
 set statusline+=[%{&ff}]
 
-" modified and buffer number
+# modified and buffer number
 set statusline+=[%M%n]
 
-" Git branch via vim-fugitive
+# Git branch via vim-fugitive
 set statusline+=%{FugitiveStatusline()}\ \ \ 
 
-" current line and column
+# current line and column
 set statusline+=%=%l.%c\ 
 
-" percent of file
+# percent of file
 set statusline+=\ \ \ \ %p%%\ 
 
 syntax on
@@ -94,9 +95,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-function! ClearSearch()
-    let @/=""
-endfunction
+def ClearSearch()
+    @/ = ""
+enddef
 
 augroup filetype tex
     autocmd FileType tex setlocal foldmethod=indent
@@ -108,29 +109,29 @@ augroup filetype arduino
     autocmd FileType arduino setlocal shiftwidth=2 tabstop=2
 augroup END
 
-function! Code()
+def Code()
     setlocal nospell
     setlocal autoindent
     setlocal smartindent
-endfunction
+enddef
 
 command -nargs=0 Code call Code()
 
-function Prose()
+def Prose()
     setlocal spell spelllang=en_us
     setlocal dictionary=/usr/share/dict/words
     setlocal noautoindent
     setlocal nosmartindent
     call textobj#sentence#init()
-endfunction
+enddef
 
 command -nargs=0 Prose call Prose()
 
-function! RemoveExtraSpaces()
+def RemoveExtraSpaces()
     :%s/ \{2,}/ /gc
-endfunction
+enddef
 
-autocmd VimEnter * call histdel("cmd")
+autocmd VimEnter * histdel("cmd")
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -138,7 +139,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'dkarter/bullets.vim'
 Plug 'godlygeek/tabular'
@@ -152,16 +153,16 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'gabrielelana/vim-markdown'
 Plug 'stevearc/vim-arduino'
-call plug#end()
+plug#end()
 
-let g:indentLine_fileTypeExclude = ['markdown', 'tex']
-let g:bullets_enabled_file_types = ['markdown', 'tex', 'text', 'gitcommit']
+g:indentLine_fileTypeExclude = ['markdown', 'tex']
+g:bullets_enabled_file_types = ['markdown', 'tex', 'text', 'gitcommit']
 
-function ClearRegisters()
-    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+def ClearRegisters()
+    var regs = split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
     for r in regs
-        call setreg(r, [])
+        setreg(r, [])
     endfor
-endfunction
+enddef
 
-autocmd VimLeave * call ClearRegisters()
+autocmd VimLeave * ClearRegisters()
