@@ -6,7 +6,7 @@
 
 # Check for GNU stow
 
-command -v stow
+command -v stow &> /dev/null
 stow_exists=$?
 
 if [ $stow_exists -eq 1 ]; then
