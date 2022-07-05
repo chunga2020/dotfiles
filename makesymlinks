@@ -25,6 +25,7 @@ dir=$home/dotfiles                    # dotfiles directory
 olddir=$home/dotfiles_old             # old dotfiles backup directory
 i3dir=$configdir/i3
 i3sdir=$configdir/i3status
+picomdir=$configdir/picom
 rofidir=$configdir/rofi
 zathuradir=$configdir/zathura
 
@@ -33,7 +34,7 @@ echo "Changing to $dir..."
 pushd $dir
 echo -e "...Done\n"
 
-packs="i3 i3status rofi top vim zathura"
+packs="i3 i3status picom rofi top vim zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
@@ -41,6 +42,7 @@ done
 # list of files/folders to symlink
 stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
+stow -v -t $picomdir picom
 stow -v -t $rofidir rofi
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
