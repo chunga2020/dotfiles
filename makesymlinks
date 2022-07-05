@@ -19,13 +19,14 @@ fi
 
 ########## Variables
 
-dir=/home/$USER/dotfiles                    # dotfiles directory
-olddir=/home/$USER/dotfiles_old             # old dotfiles backup directory
 home=/home/$USER
-i3dir=$home/.config/i3
-i3sdir=$home/.config/i3status
-rofidir=$home/.config/rofi
-zathuradir=$home/.config/zathura
+configdir=$home/.config
+dir=$home/dotfiles                    # dotfiles directory
+olddir=$home/dotfiles_old             # old dotfiles backup directory
+i3dir=$configdir/i3
+i3sdir=$configdir/i3status
+rofidir=$configdir/rofi
+zathuradir=$configdir/zathura
 
 echo "Changing to $dir..."
 # Doesn't matter where we are in the moment
