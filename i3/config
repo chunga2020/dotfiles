@@ -228,3 +228,6 @@ exec "synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28 
 exec "emacs --daemon"
 exec "pulseaudio -k; pulseaudio -D"
 exec "~/bin/multihead-control"
+exec "unclutter -b"
+exec "picom -b"
+exec lxqt-policykit-agent
