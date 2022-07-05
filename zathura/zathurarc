@@ -1,2 +1,3 @@
 set font "JetBrains Mono 16"
 set page-padding 3
+set show-recent 0
