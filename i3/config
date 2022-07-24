@@ -209,7 +209,6 @@ bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_capslock"
-exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_capslock -device 'Massdrop Inc. ALT Keyboard'"
 
 title_align center
 
