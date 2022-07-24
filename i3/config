@@ -208,7 +208,7 @@ bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease
 # Screenshot via scrot
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
-exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_capslock"
+exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_capslock -option compose:menu"
 
 title_align center
 
