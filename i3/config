@@ -196,10 +196,22 @@ bindsym XF86AudioLowerVolume exec ~/dotfiles/i3/adjust-volume -d #decrease sound
 bindsym XF86AudioMute exec ~/dotfiles/i3/adjust-volume -m # Toggle mute
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioStop exec playerctl stop
+mode "media" {
+        # playerctl controls
+        bindsym p exec playerctl play-pause
+        bindsym space exec playerctl play-pause
+
+        bindsym $mod+h exec playerctl previous
+        bindsym $mod+l exec playerctl next
+
+        bindsym $mod+s exec playerctl stop
+
+        # back to normal: Enter or Escape or $mod+m
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+}
+bindsym $mod+m mode "media"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
