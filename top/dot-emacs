@@ -145,6 +145,15 @@
   (html-mode . hs-minor-mode)
 )
 
+;; Lilypond
+(require 'lilypond-mode)
+(autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
+(add-to-list 'auto-mode-alist '("\\.ly\\'" . LilyPond-mode))
+(add-to-list 'auto-mode-alist '("\\.ily\\'" . LilyPond-mode))
+(use-package lilypond-mode
+  :hook
+  (LilyPond-mode . display-line-numbers-mode))
+
 ;; Ocaml
 (add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
 (add-hook 'tuareg-mode-hook 'lsp-mode)
