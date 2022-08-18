@@ -48,6 +48,32 @@
 (add-to-list 'emms-info-functions 'emms-info-native)
 (require 'emms-playlist-sort)
 
+;; ispell setup for electric quotes
+(require 'ispell)
+
+;;; Tell ispell.el that ’ can be part of a word.
+(setq ispell-local-dictionary-alist
+      `((nil "[[:alpha:]]" "[^[:alpha:]]"
+             "['\x2019]" nil ("-B") nil utf-8)))
+
+;;; Don't send ’ to the subprocess.
+(defun endless/replace-apostrophe (args)
+  (cons (replace-regexp-in-string
+         "’" "'" (car args))
+        (cdr args)))
+(advice-add #'ispell-send-string :filter-args
+            #'endless/replace-apostrophe)
+
+;;; Convert ' back to ’ from the subprocess.
+(defun endless/replace-quote (args)
+  (if (not (derived-mode-p 'org-mode))
+      args
+    (cons (replace-regexp-in-string
+           "'" "’" (car args))
+          (cdr args))))
+(advice-add #'ispell-parse-output :filter-args
+            #'endless/replace-quote)
+
 ;; treemacs setup
 (require 'treemacs)
 (setq treemacs-no-png-images t)         ; no icons
@@ -72,6 +98,7 @@
 ;; Interface options
 (line-number-mode t) ;; show line number in mode line
 (column-number-mode t) ;; show column number in mode line
+(electric-quote-mode t)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'hl-line-mode)
