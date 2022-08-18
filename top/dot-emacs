@@ -13,6 +13,12 @@
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
    '(magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
 
 ;; ################################ Packages ###################################
@@ -108,8 +114,6 @@
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'text-mode-hook #'flyspell-mode)
 (setq ispell-personal-dictionary "~/.ispell_american")
-
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono-12"))
 
 ;; no gui toolbars or scrollbar
 (menu-bar-mode -1)
@@ -261,9 +265,3 @@ If split-lines is supplied, resize the new window using `shrink-window'."
 
 (global-unset-key (kbd "<menu>"))
 (global-set-key (kbd "C-x M-t") 'transpose-sentences)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
