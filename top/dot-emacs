@@ -12,7 +12,7 @@
  '(inhibit-startup-echo-area-message "andrew")
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
-   '(magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
+   '(which-key magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,8 +42,10 @@
 (use-package company
   :config
   (setq company-idle-delay 0.1
-        company-dabbrev-downcase nil
-        company-minimum-prefix-length 6))
+        company-dabbrev-downcase nil))
+
+;; compilation setup
+(setq compilation-scroll-output 'first-error)
 
 ;; emms setup
 (require 'emms-setup)
@@ -84,6 +86,11 @@
 (require 'treemacs)
 (setq treemacs-no-png-images t)         ; no icons
 (global-set-key (kbd "C-x t t") 'treemacs-select-window)
+
+;; which-key setup
+(require 'which-key)
+(which-key-mode)
+(setq which-key-popup-type 'minibuffer)
 
 ;; winum setup
 (require 'winum)
