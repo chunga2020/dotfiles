@@ -35,6 +35,7 @@
   :ensure t
   :config
   (global-set-key (kbd "C-c k") 'browse-kill-ring))
+(setq kill-do-not-save-duplicates t)
 
 ;; company autocomplete everywhere
 (require 'company)
