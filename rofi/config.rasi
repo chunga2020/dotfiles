@@ -1,5 +1,5 @@
 configuration {
     modi: "run,drun";
-    font: "JetBrains Mono 12";
+    font: "Source Code Pro 12";
 }
 @theme "/usr/share/rofi/themes/solarized.rasi"
