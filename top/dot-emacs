@@ -12,7 +12,7 @@
  '(inhibit-startup-echo-area-message "andrew")
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
-   '(which-key magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
+   '(org-roam which-key magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,6 +216,26 @@
   :ensure t
   :hook
   (tuareg-mode . utop-minor-mode))
+
+;; Org-Roam mode
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/RoamNotes")
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :target (file+head "${slug}.org" "#+title: ${title}\n#+date %t")
+      :unnarrowed t)))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n v" . org-roam-graph))
+  :config
+  (org-roam-setup)
+  (setq org-return-follows-link t
+        org-roam-completion-everywhere t))
+
 
 ;; Python
 (use-package lsp-jedi
