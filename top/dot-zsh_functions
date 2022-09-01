@@ -1,0 +1,60 @@
+function __zsh_print_msg() {
+    if [[ $# -ne 2 ]]; then
+        echo "Expected 2 arguments, got $#" >&2
+        echo "
+$0: print a message to stderr
+
+Usage: $0 func_name msg
+
+where:
+    func_name is the name of the calling function emitting the message
+    msg is the actual message to print; escape sequences are permitted
+        " >&2
+        return 255
+    fi
+
+    echo -e "$1: $2" >&2
+
+    return 0
+}
+
+function gu () {
+    if [[ $# -ne 1 ]]; then
+        __zsh_print_msg $0 "Go up N levels in the file hierarchy
+
+USAGE: $0 N
+
+This function extends 'cd ..', allowing you to quickly move up multiple levels
+of the file hierarchy.
+
+N: the number of levels to move up. Can be 1, but that's not very useful.
+        "
+        return 1
+    fi
+    local path_to_go_to=
+    for ((i=0; i<$1; i++)); do
+        path_to_go_to+='../'
+    done
+    cd $path_to_go_to
+
+    return 0
+}
+
+function mkcd () {
+    if [[ $# -ne 1 ]]; then
+        __zsh_print_msg $0 "Make a directory and immediately cd into it
+
+USAGE: $0 DIR
+
+If DIR does not exist, it is made, and then the working directory is set to it.
+If DIR already exists, the working directory is set to it.
+        "
+        return 1
+    fi
+    if [[ ! -d $1 ]]; then
+        mkdir $1
+    fi
+    cd $1
+
+    return 0
+}

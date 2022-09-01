@@ -1,0 +1,29 @@
+[[ -f .zsh_aliases ]] && source .zsh_aliases
+[[ -f .zsh_functions ]] && source .zsh_functions
+
+# Lines configured by zsh-newuser-install
+HISTFILE=
+HISTSIZE=1000
+SAVEHIST=
+setopt notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle :compinstall filename '/home/andrew/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+setopt histignorealldups
+
+export EDITOR=/usr/bin/vim
+export PS1="%(1j.running jobs: %j; .)%B%F{red}%(?..%? )%f%b[%n@%m %~]%(#.#.$) "
+export VALGRIND="valgrind"
+export VISUAL=/usr/bin/vim
