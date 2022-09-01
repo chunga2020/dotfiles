@@ -193,6 +193,10 @@
   :hook
   (LilyPond-mode . display-line-numbers-mode))
 
+;; Minibuffer completion
+;; let me use spaces normally in the minibuffer
+(define-key minibuffer-local-completion-map " " 'self-insert-command)
+
 ;; Ocaml
 (add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
 (add-hook 'tuareg-mode-hook 'lsp-mode)
