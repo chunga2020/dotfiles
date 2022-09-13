@@ -229,7 +229,7 @@
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?"
-      :target (file+head "${slug}.org" "#+title: ${title}\n#+date %t")
+      :target (file+head "${slug}.org" "#+title: ${title}\n#+date %t\n#+STARTUP: latexpreview")
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
@@ -238,7 +238,8 @@
   :config
   (org-roam-setup)
   (setq org-return-follows-link t
-        org-roam-completion-everywhere t))
+        org-roam-completion-everywhere t
+        org-format-latex-options (plist-put org-format-latex-options :scale 1.5)))
 
 
 ;; Python
