@@ -259,3 +259,4 @@ exec "~/bin/multihead-control"
 exec "unclutter -b"
 exec "picom -b"
 exec lxqt-policykit-agent
+exec gpuoff
