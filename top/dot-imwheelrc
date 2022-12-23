@@ -1,4 +1,13 @@
-# For all apps and all contexts, triple scroll speed from default
-".*"
+# For zathura, triple scroll speed from default
+"^org\.pwmt\.zathura$"
 None, Up, Button4, 3
 None, Down, Button5, 3
+# for zathura, make fore thumb button page up, aft button page down
+None, Thumb1, Shift_L|J
+None, Thumb2, Shift_L|K
+
+# for brave, make fore and aft buttons work as they do out of the box
+# (fore navigates forward in history; aft navigates backward in history)
+"^brave-browser$"
+None, Thumb1, Alt_L|Left
+None, Thumb2, Alt_L|Right
