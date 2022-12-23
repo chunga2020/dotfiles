@@ -260,3 +260,4 @@ exec "unclutter -b"
 exec "picom -b"
 exec lxqt-policykit-agent
 exec gpuoff
+exec imwheel
