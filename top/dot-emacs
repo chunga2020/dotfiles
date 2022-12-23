@@ -8,17 +8,18 @@
  '(ansi-color-names-vector
    ["#01323d" "#ec423a" "#93a61a" "#c49619" "#3c98e0" "#e2468f" "#3cafa5" "#60767e"])
  '(custom-safe-themes
-   '("00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" default))
+   '("4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" default))
  '(inhibit-startup-echo-area-message "andrew")
  '(org-agenda-files '("~/.agenda.org"))
  '(package-selected-packages
-   '(org-roam which-key magit browse-kill-ring haskell-mode rust-mode company-jedi lsp-jedi use-package renpy solarized-theme angular-snippets yasnippet writegood-mode winum treemacs lsp-ui emmet-mode company ocp-indent tuareg arduino-mode lsp-mode auctex typescript-mode vterm smart-comment emms)))
+   '(eglot lsp-jedi tuareg ccls org-superstar highlight-indent-guides consult-org-roam hl-todo org-roam which-key magit browse-kill-ring haskell-mode rust-mode use-package solarized-theme writegood-mode winum treemacs emmet-mode company lsp-mode typescript-mode vterm smart-comment emms)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro"))))
+ '(org-default ((t (:inherit default :family "Liberation Sans")))))
 
 
 ;; ################################ Packages ###################################
@@ -112,11 +113,12 @@
 ;; Interface options
 (line-number-mode t) ;; show line number in mode line
 (column-number-mode t) ;; show column number in mode line
-(electric-quote-mode t)
+(add-hook 'text-mode-hook #'electric-quote-mode)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'hl-line-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+(add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
 (add-hook 'text-mode-hook #'hl-line-mode)
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
@@ -144,6 +146,7 @@
 (electric-pair-mode t)
 (setq electric-pair-delete-adjacent-pairs t)
 
+(global-hl-todo-mode t)
 (show-paren-mode t)
 
 
@@ -152,30 +155,41 @@
 
 ;; ######################### Mode-specific Settings ############################
 
+;; ccls
+(use-package ccls
+  :ensure t)
+
 ;; C mode
 (use-package c
   :hook
   (c-mode . hs-minor-mode)
-  (c-mode . lsp-mode)
 )
-
-;; CSS mode
-(use-package c
-  :hook
-  (css-mode . lsp-mode)
-)
-
-;; C++ mode
-(use-package c++
-  :hook
-  (c++-mode . hs-minor-mode)
-  (c++-mode . lsp-mode))
 
 ;; Dired mode
 (use-package dired
   :hook
   (dired-mode . hl-line-mode)
-)
+  )
+
+;; eglot
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("~/.local/bin/pylsp"))))
+;; highlight-indent-guides mode
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'fill))
+
+;; eldoc
+(use-package eldoc
+  :config
+  (setq eldoc-echo-area-use-multiline-p nil))
+
+;; hl-todo mode
+(use-package hl-todo
+  :bind (("C-c t i" . hl-todo-insert)
+         ("C-c t n" . hl-todo-next)
+         ("C-c t p" . hl-todo-previous)))
 
 ;; HTML mode
 (use-package html-mode
@@ -197,29 +211,10 @@
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
 
-;; Ocaml
-(add-to-list 'load-path "/home/andrew/.opam/default/share/emacs/site-lisp")
-(add-hook 'tuareg-mode-hook 'lsp-mode)
-(add-hook 'caml-mode-hook 'lsp-mode)
-(add-hook 'tuareg-mode-hook 'company-mode)
-(add-hook 'caml-mode-hook 'company-mode)
-(add-hook 'tuareg-mode-hook 'merlin-mode)
-(add-hook 'caml-mode-hook 'merlin-mode)
-(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
-      (when (and opam-share (file-directory-p opam-share))
-       ;; Register Merlin
-       (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-       (load "/home/andrew/.opam/default/share/emacs/site-lisp/tuareg-site-file")
-       (autoload 'merlin-mode "merlin" nil t nil)
-       ;; Automatically start it in OCaml buffers
-       (add-hook 'tuareg-mode-hook 'merlin-mode t)
-       (add-hook 'caml-mode-hook 'merlin-mode t)
-       ;; Use opam switch to lookup ocamlmerlin binary
-       (setq merlin-command 'opam)))
-(use-package tuareg
-  :ensure t
-  :hook
-  (tuareg-mode . utop-minor-mode))
+;; Org mode
+(use-package org
+  :config
+  (setq org-list-allow-alphabetical t))
 
 ;; Org-Roam mode
 (use-package org-roam
@@ -234,26 +229,45 @@
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
-         ("C-c n v" . org-roam-graph))
+         ("C-c n v" . org-roam-graph)
+         (:map org-mode-map
+               (("C-c n t" . org-roam-tag-add)
+                ("C-c n a" . org-roam-alias-add))))
   :config
   (org-roam-setup)
   (setq org-return-follows-link t
-        org-roam-completion-everywhere t
         org-format-latex-options (plist-put org-format-latex-options :scale 1.5)))
 
+(use-package consult-org-roam
+   :ensure t
+   :init
+   (require 'consult-org-roam)
+   ;; Activate the minor-mode
+   (consult-org-roam-mode 1)
+   :custom
+   (consult-org-roam-grep-func #'consult-ripgrep)
+   :config
+   ;; Eventually suppress previewing for certain functions
+   (consult-customize
+    consult-org-roam-forward-links
+    :preview-key (kbd "M-."))
+   :bind
+   ("C-c n e" . consult-org-roam-file-find)
+   ("C-c n b" . consult-org-roam-backlinks)
+   ("C-c n r" . consult-org-roam-search))
+
+;; Org-superstar
+(use-package org-superstar
+  :ensure t
+  :hook
+  (org-mode . org-superstar-mode))
 
 ;; Python
-(use-package lsp-jedi
-  :ensure t
-  :init
-  (setq jedi:complete-on-dot t)
-  :config
-  (with-eval-after-load "lsp-mode"
-    (add-to-list 'lsp-enabled-clients 'jedi)))
 (use-package python
   :hook
   (python-mode . hs-minor-mode)
-  (python-mode . lsp-mode))
+  :init
+  (setq python-indent 4))
 
 ;; Text mode
 (use-package text
@@ -267,7 +281,6 @@
   :ensure t
   :hook
   (typescript-mode . hs-minor-mode)
-  (typescript-mode . lsp-mode)
   :init
   (setq typescript-indent-level 2)
   (setq indent-tabs-mode nil))
