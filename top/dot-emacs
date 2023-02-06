@@ -94,10 +94,6 @@
 (which-key-mode)
 (setq which-key-popup-type 'minibuffer)
 
-;; winum setup
-(require 'winum)
-(winum-mode)
-
 ;; writegood setup
 (require 'writegood-mode)
 (global-set-key (kbd "C-c g") 'writegood-mode)
@@ -284,6 +280,14 @@
   :init
   (setq typescript-indent-level 2)
   (setq indent-tabs-mode nil))
+
+;; winum mode
+(use-package winum
+  :init
+  (winum-mode 1)
+  :config
+  (setq
+   winum-scope 'frame-local))
 
 ;; ######################## Enable disabled commands ###########################
 (put 'upcase-region 'disabled nil)
