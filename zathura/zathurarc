@@ -1,3 +1,7 @@
 set font "JetBrains Mono 16"
 set page-padding 3
+set show-hidden true
 set show-recent 0
+set statusbar-home-tilde true
+set window-title-basename true
+set window-title-page true
