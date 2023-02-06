@@ -261,3 +261,4 @@ exec "picom -b"
 exec lxqt-policykit-agent
 exec gpuoff
 exec imwheel
+exec "darkman run"
