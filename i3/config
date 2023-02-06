@@ -152,6 +152,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "rofi -modi power-menu:'rofi-power-menu \
 --choices=logout/shutdown/reboot' -show power-menu -width 10 -lines 4"
 
+# fast logout
+bindsym $mod+Shift+Ctrl+e exit
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
