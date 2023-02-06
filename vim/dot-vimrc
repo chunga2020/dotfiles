@@ -71,6 +71,9 @@ nnoremap <S-Tab> :bp<cr>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <localleader>o o<Esc>
+nnoremap <localleader>O O<Esc>
+
 nnoremap p ]p
 nnoremap P ]P
 
