@@ -99,6 +99,8 @@ def ClearSearch()
     @/ = ""
 enddef
 
+command -nargs=0 ClearSearch ClearSearch()
+
 augroup filetype tex
     autocmd FileType tex setlocal foldmethod=indent
     autocmd FileType tex setlocal shiftwidth=2 tabstop=2
