@@ -222,6 +222,9 @@ mode "media" {
 }
 bindsym $mod+m mode "media"
 
+# toggle touchpad
+bindsym XF86TouchpadToggle exec ~/bin/toggle-touchpad
+
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
 bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease screen brightness
