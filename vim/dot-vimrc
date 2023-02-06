@@ -51,9 +51,6 @@ set statusline+=[%{&ff}]
 # modified and buffer number
 set statusline+=[%M%n]
 
-# Git branch via vim-fugitive
-set statusline+=%{FugitiveStatusline()}\ \ \ 
-
 # current line and column
 set statusline+=%=%l.%c\ 
 
