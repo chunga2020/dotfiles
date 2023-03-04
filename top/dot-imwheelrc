@@ -6,8 +6,8 @@ None, Down, Button5, 3
 None, Thumb1, Shift_L|J
 None, Thumb2, Shift_L|K
 
-# for brave, make fore and aft buttons work as they do out of the box
-# (fore navigates forward in history; aft navigates backward in history)
-"^brave-browser$"
+# make fore and aft buttons work as they do out of the box (fore navigates
+# forward in history; aft navigates backward in history)
+"^brave-browser$|firefox"
 None, Thumb1, Alt_L|Left
 None, Thumb2, Alt_L|Right
