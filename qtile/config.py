@@ -180,6 +180,8 @@ screens = [
                                low_foreground="#ffffff",
                                show_short_text=False),
                 separator,
+                widget.Memory(fmt="RAM: {}"),
+                separator,
                 widget.CPU(),
                 separator,
                 widget.Backlight(backlight_name="intel_backlight",
