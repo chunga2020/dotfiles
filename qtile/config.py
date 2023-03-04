@@ -33,8 +33,8 @@ import subprocess
 
 import helpers
 
-mod = "mod4"
-terminal = "kitty"
+mod = helpers.MOD_KEY
+terminal = helpers.TERMINAL
 
 keys = [
     # A list of available commands that can be bound to keys can be found
