@@ -4,7 +4,7 @@
 
 HOME_DIR = "/home/andrew"
 MOD_KEY = "mod4" # super
-TERMINAL = "kitty"
+TERMINAL = "alacritty"
 
 
 ################################## Functions ##################################
