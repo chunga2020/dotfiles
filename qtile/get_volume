@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# add the -M flag to be consistent with my scripts in ~/bin
+amixer -M get Master

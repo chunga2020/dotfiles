@@ -171,7 +171,7 @@ screens = [
                 ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
+                # widget.Systray(),
                 widget.Net(format="{interface}: D: {down}, U: {up}",
                            use_bits=True),
                 separator,
@@ -187,7 +187,8 @@ screens = [
                 widget.Backlight(backlight_name="intel_backlight",
                                  fmt="🔆: {}"),
                 separator,
-                widget.Volume(fmt="🔊: {}", step=5),
+                widget.Volume(fmt="🔊: {}", step=5,
+                              get_volume_command="/home/andrew/.config/qtile/get_volume"),
                 separator,
                 widget.Clock(format="%a %F %R"),
             ],
