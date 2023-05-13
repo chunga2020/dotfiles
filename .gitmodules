@@ -1,3 +1,6 @@
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = git@github.com:vivien/i3blocks-contrib.git
+[submodule "alacritty/alacritty-theme"]
+	path = alacritty/alacritty-theme
+	url = git@github.com:alacritty/alacritty-theme.git
