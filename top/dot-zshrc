@@ -27,10 +27,10 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/vim
 export PS1="%(1j.running jobs: %j; .)%B%F{red}%(?..%? )%f%b[%n@%m %~]%(#.#.$) "
 export VALGRIND="valgrind"
-export VISUAL=/usr/bin/vim
+export VISUAL=/usr/bin/nvim
 
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
