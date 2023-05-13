@@ -1,5 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+import:
+  - ~/dotfiles/alacritty/alacritty-theme/themes/github_light.yaml
+
 #window:
   # Window dimensions (changes require restart)
   #
