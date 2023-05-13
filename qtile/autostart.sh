@@ -1,9 +1,10 @@
 #!/bin/sh
 
 xrdb ~/.Xresources &
+darkman run &
 numlockx &
 /usr/bin/dunst &
-kitty ~/bin/arch-upgrade-reminder &
+alacritty ~/bin/arch-upgrade-reminder &
 ~/bin/get-news -s 5 whdh.com wcvb.com reuters.com &
 synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28 TapButton1=0 TapButton2=0 tapbutton3=0 &
 setxkbmap -option ctrl:nocaps -option shift:both_capslock -option compose:menu &
@@ -12,5 +13,4 @@ pulseaudio -k; pulseaudio -D &
 unclutter -b &
 picom -b &
 lxqt-policykit-agent &
-gpuoff &
 imwheel &
