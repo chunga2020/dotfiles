@@ -236,7 +236,7 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = {
-        "type:keyboard": InputConfig(kb_options="ctrl:swapcaps, shift:both_capslock")
+        "type:keyboard": InputConfig(kb_options="ctrl:nocaps, shift:both_capslock")
 }
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
