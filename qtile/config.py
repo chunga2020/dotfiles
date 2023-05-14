@@ -76,6 +76,8 @@ keys = [
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
+    Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle window floating"),
+
     Key([], "XF86TouchpadToggle", lazy.spawn("toggle-touchpad"),
         desc="Toggle touchpad"),
 
