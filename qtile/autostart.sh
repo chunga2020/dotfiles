@@ -1,7 +1,6 @@
 #!/bin/sh
 
 xrdb ~/.Xresources &
-darkman run &
 numlockx &
 /usr/bin/dunst &
 alacritty ~/bin/arch-upgrade-reminder &
