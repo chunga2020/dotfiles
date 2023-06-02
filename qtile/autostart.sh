@@ -5,7 +5,6 @@ numlockx &
 alacritty -e ~/bin/arch-upgrade-reminder &
 ~/bin/get-news -s 5 whdh.com wcvb.com reuters.com &
 pulseaudio -k; pulseaudio -D &
-~/bin/multihead-control &
 unclutter -b &
 picom -b &
 lxqt-policykit-agent &
