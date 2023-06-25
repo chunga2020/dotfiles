@@ -9,157 +9,17 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+include ~/dotfiles/i3/keybinds.i3
+include ~/dotfiles/i3/colors.i3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
-
 font pango:Source Code Pro Medium 11
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec alacritty
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start rofi (a program launcher)
-bindsym --release $mod+r exec rofi -modi run#drun -show run
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# move windows around on output
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# move workspace to output
-bindsym Control+Shift+$mod+j move workspace to output left
-bindsym Control+Shift+$mod+k move workspace to output down
-bindsym Control+Shift+$mod+l move workspace to output up
-bindsym Control+Shift+$mod+semicolon move workspace to output right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # use tabbed layout when opening new apps
 workspace_layout default
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-bindsym $mod+c focus child
-
 focus_follows_mouse no
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
-
-# move focused container to workspace and immediately switch to that
-# workspace
-bindsym $mod+Mod1+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Mod1+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Mod1+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Mod1+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Mod1+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Mod1+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Mod1+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Mod1+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Mod1+9 move container to workspace $ws9; workspace $ws9
-bindsym $mod+Mod1+0 move container to workspace $ws10; workspace $ws10
-
-# easy workspace switching
-# n for "n"ext
-# p for "p"revious
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
-
-# moving windows to adjacent workspaces with n and p, as above
-bindsym $mod+Shift+n move workspace next
-bindsym $mod+Shift+p move workspace prev
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "rofi -modi power-menu:'rofi-power-menu \
---choices=logout/shutdown/reboot' -show power-menu -width 10 -lines 4"
-
-# fast logout
-bindsym $mod+Shift+Ctrl+e exit
-
-# resize window (you can also use the mouse for that)
-bindsym Control+$mod+j resize shrink width 5 px or 5 ppt
-bindsym Control+$mod+k resize grow height 5 px or 5 ppt
-bindsym Control+$mod+l resize shrink height 5 px or 5 ppt
-bindsym Control+$mod+semicolon resize grow width 5 px or 5 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -175,75 +35,5 @@ bar {
     bindsym button6 nop
     bindsym button7 nop
 }
-
-bindsym $mod+Shift+x exec i3lock -c 000000
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec adjust-volume increase
-bindsym XF86AudioLowerVolume exec adjust-volume decrease
-bindsym XF86AudioMute exec adjust-volume toggle-mute
-
-# Media player controls
-mode "media" {
-    # playerctl controls
-    bindsym p exec playerctl play-pause
-    bindsym space exec playerctl play-pause
-
-    bindsym $mod+h exec playerctl previous
-    bindsym $mod+l exec playerctl next
-
-    bindsym $mod+s exec playerctl stop
-
-    # back to normal: Enter or Escape or $mod+m
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+m mode "default"
-}
-bindsym $mod+m mode "media"
-
-# toggle touchpad
-bindsym XF86TouchpadToggle exec ~/bin/toggle-touchpad
-
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
-bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease screen brightness
-
-# Screenshot via scrot
-bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
-
-exec_always --no-startup-id "setxkbmap -option ctrl:nocaps -option shift:both_capslock -option compose:menu"
-
 title_align center
-
-# Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-# Text Scratchpad
-bindsym $mod+g exec text-scratchpad
-
-# Colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #c00000 #c00000 #ffffff #c00000   #c00000
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
-
-exec xrdb ~/.Xresources
-exec numlockx
-exec ~/.fehbg
-exec /usr/bin/dunst
-exec "kitty ~/bin/arch-upgrade-reminder"
-exec "~/bin/get-news -s 5 whdh.com wcvb.com reuters.com"
-exec "synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28 TapButton1=0 TapButton2=0 tapbutton3=0"
-exec "pulseaudio -k; pulseaudio -D"
-exec "~/bin/multihead-control"
-exec "unclutter -b"
-exec "picom -b"
-exec lxqt-policykit-agent
-exec gpuoff
-exec imwheel
-exec "darkman run"
+include ~/dotfiles/i3/autostart.i3
