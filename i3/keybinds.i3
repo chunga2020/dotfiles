@@ -2,6 +2,7 @@
 set $mod Mod4
 
 floating_modifier $mod
+focus_follows_mouse no
 
 ################### Keybinds to start/use external programs ###################
 
