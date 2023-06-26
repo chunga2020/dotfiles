@@ -10,5 +10,10 @@ alias makej='make -j$( echo $(( $(nproc)-1 )) )'
 alias m64g='mupen64plus --gfx mupen64plus-video-glide64mk2'
 alias mongo='command mongosh --quiet' # to override regular 'mongo'
 alias playcd='mpv --no-resume-playback --cdda-speed=1 cdda:///dev/cdrom'
+alias qtile-wayland="qtile start -b wayland"
+
+# sway doesn't support the proprietary Nvidia driver; I don't care, since I
+# never use the dGPU on Linux anyways
+alias sway="command sway --unsupported-gpu"
 alias time='command time -p'
 alias valgrind='command valgrind -s --leak-check=full --show-leak-kinds=all --error-exitcode=1'
