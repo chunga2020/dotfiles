@@ -5,4 +5,6 @@ font pango:Source Code Pro Medium 11
 # use tabbed layout when opening new apps
 workspace_layout default
 
+default_border pixel 2
+
 title_align center
