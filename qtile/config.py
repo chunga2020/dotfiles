@@ -166,7 +166,7 @@ screens = [
                 ),
                 widget.Prompt(ignore_dups_history=True),
                 widget.WindowName(format='{name}',
-                                  parse_text=helpers.remove_app_names),
+                                  parse_text=helpers.parse_names),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
