@@ -130,7 +130,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.TreeTab(),
+    layout.TreeTab(font=helpers.FONT),
     layout.Max(),
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"],
                    border_focus="#ff0000", border_width=5),
@@ -147,8 +147,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="mono",
-    fontsize=14,
+    font=helpers.FONT,
+    fontsize=12,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()

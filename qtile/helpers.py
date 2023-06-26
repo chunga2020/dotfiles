@@ -2,6 +2,7 @@
 
 ################################## Variables ##################################
 
+FONT = "Source Code Pro"
 HOME_DIR = "/home/andrew"
 MOD_KEY = "mod4" # super
 TERMINAL = "alacritty"
