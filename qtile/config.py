@@ -237,7 +237,7 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = {
-        "type:keyboard": InputConfig(kb_options="ctrl:nocaps, shift:both_capslock"),
+        "type:keyboard": InputConfig(kb_options="compose:menu, ctrl:nocaps, shift:both_capslock"),
         "1739:52581:SYNA1202:00 06CB:CD65 Touchpad": InputConfig(natural_scroll=True)
 }
 
