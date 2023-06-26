@@ -30,6 +30,7 @@ i3sdir=$configdir/i3status
 picomdir=$configdir/picom
 qtiledir=$configdir/qtile
 rofidir=$configdir/rofi
+swaydir=$configdir/sway
 zathuradir=$configdir/zathura
 
 echo "Changing to $dir..."
@@ -37,12 +38,12 @@ echo "Changing to $dir..."
 pushd $dir
 echo -e "...Done\n"
 
-packs="alacritty darkman i3 i3status picom qtile rofi top vim zathura"
+packs="alacritty darkman i3 i3status picom qtile rofi sway top vim zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
 
-for dir in $alacrittydir $darkmandir $i3dir $i3sdir $picomdir $qtiledir $rofidir $zathuradir; do
+for dir in $alacrittydir $darkmandir $i3dir $i3sdir $picomdir $qtiledir $rofidir $swaydir $zathuradir; do
     if [[ ! -d $dir ]]; then
         mkdir -p $dir
     fi
@@ -56,6 +57,7 @@ stow --verbose --target $darkmandir darkman
 stow -v -t $picomdir picom
 stow --verbose --target $qtiledir qtile
 stow -v -t $rofidir rofi
+stow --verbose --target $swaydir sway
 stow -v -t $i3dir i3
 stow -v -t $i3sdir i3status
 stow -v -t $zathuradir zathura
