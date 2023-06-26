@@ -2,7 +2,7 @@ exec xrdb ~/.Xresources
 exec numlockx
 exec ~/.fehbg
 exec /usr/bin/dunst
-exec "kitty ~/bin/arch-upgrade-reminder"
+exec "alacritty -e ~/bin/arch-upgrade-reminder"
 exec "~/bin/get-news -s 5 whdh.com wcvb.com reuters.com"
 exec "synclient HorizTwoFingerScroll=1 VertScrollDelta=-28 HorizScrollDelta=-28 TapButton1=0 TapButton2=0 tapbutton3=0"
 exec "pulseaudio -k; pulseaudio -D"
