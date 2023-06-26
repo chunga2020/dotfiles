@@ -8,3 +8,5 @@ XTerm*background: rgb:00/00/00
 XTerm*termName: xterm-256color
 XTerm*locale: false
 XTerm*utf8: true
+
+Xft.dpi: 96
