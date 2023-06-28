@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Sway's `output` only allows for static choice of a single wallpaper across
+# all sessions.  This script wraps `swaybg` to provide functionality similar to
+# `feh`'s ability to randomly choose a wallpaper.
+#
+# Default location: ~/Pictures/wallpapers/
+
+set -x
+
+MY_NAME=sway-randomize-bg
+WALLPAPER_DIR=~/Pictures/wallpapers
+
+wallpaper=$(ls $WALLPAPER_DIR | shuf -n 1)
+
+swaybg -m fill -i $WALLPAPER_DIR/$wallpaper
