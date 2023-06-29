@@ -84,17 +84,17 @@ keys = [
         desc="Toggle touchpad"),
 
     # brightness hotkeys
-    Key([], "XF86MonBrightnessDown", lazy.spawn("adjust-brightness -d"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("adjust-brightness decrease"),
         desc="Decrease screen brightness"),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("adjust-brightness -i"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("adjust-brightness increase"),
         desc="Increase screen brightness"),
 
     # audio volume hotkeys
-    Key([], "XF86AudioMute", lazy.spawn("adjust-volume -m"),
+    Key([], "XF86AudioMute", lazy.spawn("adjust-volume toggle-mute"),
         desc="Lower volume"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("adjust-volume -d"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("adjust-volume decrease"),
         desc="Lower volume"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("adjust-volume -i"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("adjust-volume increase"),
         desc="Lower volume"),
 
     # screenshot

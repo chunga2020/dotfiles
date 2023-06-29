@@ -23,8 +23,8 @@ bindsym $mod+Shift+e exec "rofi -modi power-menu:'rofi-power-menu \
 --choices=logout/shutdown/reboot' -show power-menu -width 10 -lines 4"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec ~/dotfiles/i3/adjust-brightness -i # increase screen brightness
-bindsym XF86MonBrightnessDown exec ~/dotfiles/i3/adjust-brightness -d # decrease screen brightness
+bindsym XF86MonBrightnessUp exec adjust-brightness increase
+bindsym XF86MonBrightnessDown exec adjust-brightness decrease
 
 # Screenshot
 bindsym Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.png"
