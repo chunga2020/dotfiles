@@ -5,6 +5,8 @@
 	editor = nvim
 [init]
 	defaultBranch = main
+[commit]
+    verbose = true
 [pull]
 	rebase = true
 [alias]
