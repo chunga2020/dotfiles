@@ -1,3 +1,17 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
 ;; Add MELPA to known package repos
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -49,3 +63,96 @@
 
 (global-unset-key (kbd "<menu>"))
 (global-set-key (kbd "C-x M-t") 'transpose-sentences)
+
+;; ################################ Packages ###################################
+
+;; browse-kill-ring setup
+(use-package browse-kill-ring
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c k") 'browse-kill-ring))
+(setq kill-do-not-save-duplicates t)
+
+;; compilation setup
+(setq compilation-scroll-output 'first-error)
+
+;; highlight-indent-guides mode
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'fill))
+
+;; Minibuffer completion
+;; let me use spaces normally in the minibuffer
+(define-key minibuffer-local-completion-map " " 'self-insert-command)
+
+;; treemacs setup
+(use-package treemacs
+  :ensure t
+  :config
+  (setq treemacs-no-png-images t)
+  (global-set-key (kbd "C-x t t") 'treemacs-select-window))
+
+;; which-key setup
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode)
+  :config
+  (setq which-key-popup-type 'minibuffer))
+
+;; winum mode
+(use-package winum
+  :init
+  (winum-mode 1)
+  :config
+  (setq
+   winum-scope 'frame-local))
+
+;; ######################### Mode-specific settings ############################
+
+;; HTML mode
+(use-package html-mode
+  :config
+  (setq tab-width 2)
+  :hook
+  (html-mode . emmet-mode)
+  (html-mode . hs-minor-mode)
+)
+
+;; JavaScript mode
+(use-package javascript-mode
+  :config
+  (setq tab-width 2)
+  :hook
+  (javascript-mode . emmet-mode)
+  (javascript-mode . hs-minor-mode)
+)
+
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "pandoc"))
+
+;; Text mode
+(use-package text
+  :hook
+  ;; Always hard-wrap text in text mode
+  (text-mode . turn-on-auto-fill)
+  (text-mode . flyspell-mode))
+
+;; ############################# Useful functions ##############################
+
+(defun start-vterm-with-name (&optional split-lines)
+  "Prompt for a split type and name, and start a new vterm buffer.
+If split-lines is supplied, resize the new window using `shrink-window'."
+  (interactive "p")
+  (setq horizontal-p (y-or-n-p "Horizontal split? "))
+  (if horizontal-p
+      (split-window-horizontally)
+    (split-window-vertically))
+  (other-window 1)
+  (if split-lines
+      (shrink-window split-lines horizontal-p)) ; delta value is unimportant.
+                                                ; Just pass it along and let
+                                                ; shrink-window handle it
+  (vterm (read-from-minibuffer "Enter name for the new terminal buffer: ")))
