@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+   '(darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -75,6 +75,12 @@
 
 ;; compilation setup
 (setq compilation-scroll-output 'first-error)
+
+;; darkman
+(use-package darkman
+  :ensure t
+  :init
+  (darkman-mode))
 
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
