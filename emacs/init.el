@@ -118,8 +118,6 @@
 
 ;; HTML mode
 (use-package html-mode
-  :config
-  (setq tab-width 2)
   :hook
   (html-mode . emmet-mode)
   (html-mode . hs-minor-mode)
