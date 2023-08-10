@@ -1,3 +1,14 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers \
-/usr/share/backgrounds
+
+command -v darkman &> /dev/null;
+
+if [[ $? == 1 ]]; then
+    echo 'This script relies on `darkman`, which was not found' >&2;
+    exit 1;
+fi
+
+if [[ $(darkman get) == 'light' ]]; then
+    feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/light.d
+else
+    feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/dark.d
+fi
