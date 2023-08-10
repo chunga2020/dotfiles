@@ -127,8 +127,8 @@
 (use-package javascript-mode
   :config
   :hook
-  (javascript-mode . emmet-mode)
-  (javascript-mode . hs-minor-mode)
+  (js-mode . emmet-mode)
+  (js-mode . hs-minor-mode)
 )
 
 (use-package markdown-mode
