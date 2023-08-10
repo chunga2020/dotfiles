@@ -126,7 +126,6 @@
 ;; JavaScript mode
 (use-package javascript-mode
   :config
-  (setq tab-width 2)
   :hook
   (javascript-mode . emmet-mode)
   (javascript-mode . hs-minor-mode)
