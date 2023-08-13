@@ -3,13 +3,22 @@
 # Sway's `output` only allows for static choice of a single wallpaper across
 # all sessions.  This script wraps `swaybg` to provide functionality similar to
 # `feh`'s ability to randomly choose a wallpaper.
-#
-# Default location: ~/Pictures/wallpapers/
 
-set -x
+command -v darkman &> /dev/null;
+
+if [[ $? == 1 ]]; then
+    echo 'This script relies on `darkman`, which was not found' >&2;
+    exit 1;
+fi
 
 MY_NAME=sway-randomize-bg
 WALLPAPER_DIR=~/Pictures/wallpapers
+
+if [[ $(darkman get) == 'light' ]]; then
+    WALLPAPER_DIR=$WALLPAPER_DIR/light.d
+else
+    WALLPAPER_DIR=$WALLPAPER_DIR/dark.d
+fi
 
 wallpaper=$(ls $WALLPAPER_DIR | shuf -n 1)
 
