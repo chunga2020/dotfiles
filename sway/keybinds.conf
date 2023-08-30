@@ -35,7 +35,7 @@ bindsym $mod+Shift+x exec i3lock -c 000000
 # Volume controls
 bindsym XF86AudioRaiseVolume exec adjust-volume increase
 bindsym XF86AudioLowerVolume exec adjust-volume decrease
-bindsym XF86AudioMute exec adjust-volume toggle-mute
+bindsym XF86AudioMute exec adjust-volume toggle
 
 # Media player controls
 mode "media" {

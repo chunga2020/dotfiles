@@ -90,7 +90,7 @@ keys = [
         desc="Increase screen brightness"),
 
     # audio volume hotkeys
-    Key([], "XF86AudioMute", lazy.spawn("adjust-volume toggle-mute"),
+    Key([], "XF86AudioMute", lazy.spawn("adjust-volume toggle"),
         desc="Lower volume"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("adjust-volume decrease"),
         desc="Lower volume"),
