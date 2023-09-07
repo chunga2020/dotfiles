@@ -93,7 +93,7 @@
   (darkman-mode))
 
 ;; eglot setup
-(setq eglot-events-buffer-size 250000)
+(setq eglot-events-buffer-size 0)
 
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
