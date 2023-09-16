@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+   '(evil prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -98,6 +98,13 @@
 
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
+
+;; evil mode
+(use-package evil
+  :init
+  (evil-mode t)
+  :config
+  (setq evil-want-Y-yank-to-eol t))
 
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
