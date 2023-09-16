@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+   '(telephone-line evil prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -114,6 +114,21 @@
 ;; Minibuffer completion
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
+
+;; telephone-line
+(use-package telephone-line
+  :init
+  (telephone-line-mode t)
+  :config
+  (setq
+   ;; telephone-line-primary-left-separator telephone-line-flat
+   ;; telephone-line-secondary-left-separator telephone-line-abs-left
+   telephone-line-lhs '((evil . (telephone-line-evil-tag-segment))
+                        (accent . (telephone-line-vc-segment))
+                        (nil . (telephone-line-major-mode-segment))
+                        (accent . (telephone-line-minor-mode-segment))
+                        (nil . (telephone-line-buffer-segment))
+                        (evil . (telephone-line-airline-position-segment)))))
 
 ;; treemacs setup
 (use-package treemacs
