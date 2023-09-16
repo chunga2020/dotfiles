@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+   '(prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -27,6 +27,7 @@
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'hl-line-mode)
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 
