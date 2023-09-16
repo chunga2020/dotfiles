@@ -118,8 +118,6 @@
 ;; telephone-line
 (use-package telephone-line
   :init
-  (telephone-line-mode t)
-  :config
   (setq
    ;; telephone-line-primary-left-separator telephone-line-flat
    ;; telephone-line-secondary-left-separator telephone-line-abs-left
@@ -128,7 +126,9 @@
                         (nil . (telephone-line-major-mode-segment))
                         (accent . (telephone-line-minor-mode-segment))
                         (nil . (telephone-line-buffer-segment))
-                        (evil . (telephone-line-airline-position-segment)))))
+                        (accent . (telephone-line-airline-position-segment)))
+   telephone-line-rhs nil)
+  (telephone-line-mode t))
 
 ;; treemacs setup
 (use-package treemacs
