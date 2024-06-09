@@ -2,7 +2,7 @@
 	name = Andrew Chung
 	email = andrewtc4@proton.me
 [core]
-	editor = nvim
+	editor = vim
 [init]
 	defaultBranch = main
 [commit]
