@@ -89,8 +89,9 @@
             "warning": 30,
             "critical": 15
         },
+        "design-capacity": true,
         "format": "BAT {capacity}%",
-        "format-full": "{capacity}% {icon}",
+        "format-full": "FULL: {capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
