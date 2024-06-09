@@ -13,5 +13,4 @@ include ~/dotfiles/sway/keybinds.conf
 include ~/dotfiles/sway/input_rules.conf
 include ~/dotfiles/sway/colors.conf
 include ~/dotfiles/sway/appearance.conf
-include ~/dotfiles/sway/bar.conf
 include ~/dotfiles/sway/autostart.conf
