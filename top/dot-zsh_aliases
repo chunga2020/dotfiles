@@ -12,9 +12,6 @@ alias mongo='command mongosh --quiet' # to override regular 'mongo'
 alias playcd='mpv --no-resume-playback --cdda-speed=1 cdda:///dev/cdrom'
 alias qtile-wayland="qtile start -b wayland"
 
-# sway doesn't support the proprietary Nvidia driver; I don't care, since I
-# never use the dGPU on Linux anyways
-alias sway="command sway --unsupported-gpu"
 alias systemd-reboot-windows="systemctl reboot --boot-loader-entry=auto-windows"
 alias time='command time -p'
-alias valgrind='command valgrind -s --leak-check=full --show-leak-kinds=all --error-exitcode=1'
+alias valgrind-check='command valgrind -s --leak-check=full --show-leak-kinds=all --error-exitcode=1'
