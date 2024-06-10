@@ -29,7 +29,6 @@ emacsdir=$home/.emacs.d
 i3dir=$configdir/i3
 i3sdir=$configdir/i3status
 picomdir=$configdir/picom
-qtiledir=$configdir/qtile
 rofidir=$configdir/rofi
 swaydir=$configdir/sway
 waybardir=$configdir/waybar
@@ -40,12 +39,12 @@ echo "Changing to $dir..."
 pushd $dir
 echo -e "...Done\n"
 
-packs="alacritty darkman emacs i3 i3status picom qtile rofi sway top vim waybar zathura"
+packs="alacritty darkman emacs i3 i3status picom rofi sway top vim waybar zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
 
-for dir in $alacrittydir $darkmandir $emacsdir $i3dir $i3sdir $picomdir $qtiledir $rofidir $swaydir $waybardir $zathuradir; do
+for dir in $alacrittydir $darkmandir $emacsdir $i3dir $i3sdir $picomdir $rofidir $swaydir $waybardir $zathuradir; do
     if [[ ! -d $dir ]]; then
         mkdir -p $dir
     fi
@@ -58,7 +57,6 @@ stow --verbose --target $alacrittydir alacritty
 stow --verbose --target $darkmandir darkman
 stow --verbose --target $emacsdir emacs
 stow -v -t $picomdir picom
-stow --verbose --target $qtiledir qtile
 stow -v -t $rofidir rofi
 stow --verbose --target $swaydir sway
 stow -v -t $i3dir i3
