@@ -32,6 +32,3 @@ export EDITOR=/usr/bin/vim
 export PS1="%(1j.running jobs: %j; .)%B%F{red}%(?..%? )%f%b[%n@%m %~]%(#.#.$) "
 export VALGRIND="valgrind"
 export VISUAL=/usr/bin/vim
-
-[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-[[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
