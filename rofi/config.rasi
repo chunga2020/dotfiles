@@ -3,4 +3,4 @@ configuration {
     font: "Source Code Pro 12";
     disable-history: true;
 }
-@theme "/usr/share/rofi/themes/solarized.rasi"
+@theme "/usr/share/rofi/themes/dmenu.rasi"
