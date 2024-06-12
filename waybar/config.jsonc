@@ -83,7 +83,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "BRI {percent}%"
+        "format": "BRI: {percent}%"
     },
     "battery": {
         "states": {
