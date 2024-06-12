@@ -30,7 +30,7 @@ picom
 pipewire-alsa
 pipewire-pulse
 reflector
-rofi
+rofi-wayland
 stow
 sudo
 sway
