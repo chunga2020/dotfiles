@@ -65,11 +65,13 @@
         "format": "{:%F %R}"
     },
     "cpu": {
-        "format": "CPU: {usage}%",
+        "interval": 5,
+        "format": "CPU: {usage}% {avg_frequency} GHz",
         "tooltip": false
     },
     "memory": {
-        "format": "RAM: {}%"
+        "interval": 5,
+        "format": "RAM: {used}/{total} GiB ({}%)"
     },
     "temperature": {
         // "thermal-zone": 2,
