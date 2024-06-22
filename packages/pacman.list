@@ -104,4 +104,5 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+yubikey-manager-qt
 zsh
