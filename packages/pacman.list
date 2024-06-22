@@ -49,6 +49,7 @@ ttf-dejavu
 ttf-jetbrains-mono
 ttf-liberation
 udisks2
+valgrind
 vim
 vulkan-nouveau
 vulkan-tools
