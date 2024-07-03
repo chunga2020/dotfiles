@@ -9,6 +9,7 @@ emacs-nativecomp
 fakeroot
 feh
 firefox
+fuse2
 git
 htop
 intel-ucode
