@@ -62,7 +62,7 @@
     "clock": {
         "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%F %R}"
+        "format": "{:%a %F %R}"
     },
     "cpu": {
         "interval": 5,
@@ -83,6 +83,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
+        "scroll-step": 5.0,
         "format": "BRI: {percent}%"
     },
     "battery": {
