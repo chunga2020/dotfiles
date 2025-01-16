@@ -52,7 +52,7 @@ If DIR already exists, the working directory is set to it.
         return 1
     fi
     if [[ ! -d $1 ]]; then
-        mkdir $1
+        mkdir -p $1
     fi
     cd $1
 
