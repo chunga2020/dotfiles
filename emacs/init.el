@@ -102,6 +102,7 @@
 ;; evil mode
 (use-package evil
   :init
+  (setq evil-want-C-u-scroll t)
   (evil-mode t)
   :config
   (setq evil-want-Y-yank-to-eol t))
