@@ -96,6 +96,9 @@
   :init
   (darkman-mode))
 
+;; eldoc
+(setq eldoc-echo-area-prefer-doc-buffer t)
+
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
