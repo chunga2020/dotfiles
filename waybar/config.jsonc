@@ -71,7 +71,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": "RAM: {used}/{total} GiB ({}%)"
+        "format": "RAM: {used}/{total} GiB ({0}%)"
     },
     "temperature": {
         // "thermal-zone": 2,
