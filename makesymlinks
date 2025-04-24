@@ -25,6 +25,7 @@ dir=$home/dotfiles                    # dotfiles directory
 olddir=$home/dotfiles_old             # old dotfiles backup directory
 alacrittydir=$configdir/alacritty
 darkmandir=$configdir/darkman
+darkmanscriptsdir=/$home/.local/share
 emacsdir=$home/.emacs.d
 i3dir=$configdir/i3
 i3sdir=$configdir/i3status
@@ -39,12 +40,12 @@ echo "Changing to $dir..."
 pushd $dir
 echo -e "...Done\n"
 
-packs="alacritty darkman emacs i3 i3status picom rofi sway top vim waybar zathura"
+packs="alacritty darkman darkman_scripts emacs i3 i3status picom rofi sway top vim waybar zathura"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
 
-for dir in $alacrittydir $darkmandir $emacsdir $i3dir $i3sdir $picomdir $rofidir $swaydir $waybardir $zathuradir; do
+for dir in $alacrittydir $darkmandir $darkmanscriptsdir $emacsdir $i3dir $i3sdir $picomdir $rofidir $swaydir $waybardir $zathuradir; do
     if [[ ! -d $dir ]]; then
         mkdir -p $dir
     fi
@@ -55,6 +56,7 @@ stow -v --dotfiles -t $home top
 stow -v --dotfiles -t $home vim
 stow --verbose --target $alacrittydir alacritty
 stow --verbose --target $darkmandir darkman
+stow --verbose --target $darkmanscriptsdir darkman_scripts
 stow --verbose --target $emacsdir emacs
 stow -v -t $picomdir picom
 stow -v -t $rofidir rofi
