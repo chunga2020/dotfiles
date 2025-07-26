@@ -3,4 +3,4 @@ configuration {
     font: "JetBrains Mono Nerd Font 14px";
     disable-history: true;
 }
-@theme "/usr/share/rofi/themes/dmenu.rasi"
+@theme "gruvbox-light-hard"
