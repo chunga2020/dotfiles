@@ -1,0 +1,12 @@
+# I usually only use this for audio
+--extract-audio
+
+--audio-format mp3
+
+--cookies-from-browser firefox
+
+# Take the title as-is; I don't like the way that --restrict-filenames handles
+# certain characters and prefer to do it myself
+# track_num doesn't exactly work, but the playlist index, logically, corresponds
+# to the track number, so that should work
+--output "%(playlist_index)02d_%(track)s"
