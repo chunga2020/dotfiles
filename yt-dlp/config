@@ -2,6 +2,8 @@
 --extract-audio
 
 --audio-format mp3
+# yt-dlp uses a 0--10 scale, where 0 is best??? weird, but whatever
+--audio-quality 0
 
 --cookies-from-browser firefox
 
