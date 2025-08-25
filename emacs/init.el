@@ -27,9 +27,9 @@
 ;; Interface options
 (line-number-mode t)
 (column-number-mode t)
+(hl-line-mode t)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'hl-line-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
