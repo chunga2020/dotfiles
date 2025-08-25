@@ -3,6 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(eglot-ignored-server-capabilities
+   '(:documentFormattingProvider :documentRangeFormattingProvider
+                                 :documentOnTypeFormattingProvider))
  '(package-selected-packages
    '(telephone-line evil prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
 (custom-set-faces
