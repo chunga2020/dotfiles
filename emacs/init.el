@@ -182,6 +182,11 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "pandoc"))
 
+(use-package org
+  :ensure t
+  :hook
+  (org-mode . electric-quote-mode))
+
 ;; Text mode
 (use-package text
   :hook
