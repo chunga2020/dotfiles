@@ -44,8 +44,8 @@
 (use-package telephone-line
   :init
   (setq
-   ;; telephone-line-primary-left-separator telephone-line-flat
-   ;; telephone-line-secondary-left-separator telephone-line-abs-left
+   telephone-line-primary-left-separator 'telephone-line-flat
+   telephone-line-secondary-left-separator 'telephone-line-flat
    telephone-line-lhs '((accent . (telephone-line-vc-segment))
                         (nil . (telephone-line-major-mode-segment))
                         (accent . (telephone-line-minor-mode-segment))
