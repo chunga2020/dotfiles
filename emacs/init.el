@@ -7,7 +7,9 @@
    '(:documentFormattingProvider :documentRangeFormattingProvider
                                  :documentOnTypeFormattingProvider))
  '(package-selected-packages
-   '(telephone-line evil prettier vue vue-mode web-mode company darkman markdown-mode emmet-mode treemacs smart-comment vterm winum magit highlight-indent-guides which-key browse-kill-ring)))
+   '(browse-kill-ring company darkman highlight-indent-guides hl-todo magit
+                      magit-todos markdown-mode org-mode telephone-line vterm
+                      winum)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -105,14 +107,6 @@
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
-;; evil mode
-(use-package evil
-  :init
-  (setq evil-want-C-u-scroll t)
-  (evil-mode t)
-  :config
-  (setq evil-want-Y-yank-to-eol t))
-
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
   :config
@@ -137,13 +131,6 @@
    telephone-line-rhs nil)
   (telephone-line-mode t))
 
-;; treemacs setup
-(use-package treemacs
-  :ensure t
-  :config
-  (setq treemacs-no-png-images t)
-  (global-set-key (kbd "C-x t t") 'treemacs-select-window))
-
 ;; which-key setup
 (use-package which-key
   :ensure t
@@ -161,21 +148,6 @@
    winum-scope 'frame-local))
 
 ;; ######################### Mode-specific settings ############################
-
-;; HTML mode
-(use-package html-mode
-  :hook
-  (html-mode . emmet-mode)
-  (html-mode . hs-minor-mode)
-)
-
-;; JavaScript mode
-(use-package javascript-mode
-  :config
-  :hook
-  (js-mode . emmet-mode)
-  (js-mode . hs-minor-mode)
-)
 
 (use-package markdown-mode
   :ensure t
