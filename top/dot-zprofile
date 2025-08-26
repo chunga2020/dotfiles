@@ -8,4 +8,19 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Until cosmic is patched to remember the power state of the GPU, use this to
+# make sure that the GPU remains off if not explicitly in dedicated graphics
+# mode
+gpu_on=$(system76-power graphics power | awk '{print $1}')
+mode=$(system76-power graphics | awk '{print $1}')
+
+if [[ "${gpu_on}" = "on" ]]; then
+    case "${mode}" in
+        nvidia)
+            : ;;
+        compute|integrated)
+            system76-power graphics power off;;
+    esac
+fi
+
 arch-upgrade-reminder
