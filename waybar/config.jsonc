@@ -19,7 +19,6 @@
         "network",
         "power-profiles-daemon",
         "disk",
-        "disk#home",
         "cpu",
         "memory",
         "temperature",
