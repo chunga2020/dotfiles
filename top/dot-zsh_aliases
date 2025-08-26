@@ -13,5 +13,6 @@ alias mongo='command mongosh --quiet' # to override regular 'mongo'
 alias playcd='mpv --no-resume-playback --cdda-speed=1 cdda:///dev/cdrom'
 alias run0="command run0 --background=''"
 alias systemd-reboot-windows="systemctl reboot --boot-loader-entry=auto-windows"
+alias sway='command sway --unsupported-gpu'
 alias time='command time -p'
 alias valgrind-check='command valgrind --show-error-list=yes --leak-check=full --show-leak-kinds=all --error-exitcode=1'
