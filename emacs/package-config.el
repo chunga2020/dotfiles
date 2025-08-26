@@ -21,9 +21,7 @@
 
 ;; darkman
 (use-package darkman
-  :ensure t
-  :init
-  (darkman-mode))
+  :ensure t)
 
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
@@ -51,8 +49,7 @@
                         (accent . (telephone-line-minor-mode-segment))
                         (nil . (telephone-line-buffer-segment))
                         (accent . (telephone-line-airline-position-segment)))
-   telephone-line-rhs nil)
-  (telephone-line-mode t))
+   telephone-line-rhs nil))
 
 ;; which-key setup
 (use-package which-key
