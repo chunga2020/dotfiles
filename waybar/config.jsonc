@@ -100,10 +100,6 @@
     "disk": {
         "format": "{path}: {free} free"
     },
-    "disk#home": {
-        "path": "/home",
-        "format": "{path}: {free} free"
-    },
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
