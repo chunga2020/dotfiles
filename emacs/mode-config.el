@@ -14,3 +14,8 @@
   ;; Always hard-wrap text in text mode
   (text-mode . turn-on-auto-fill)
   (text-mode . flyspell-mode))
+
+;; VTerm mode
+(use-package vterm
+  :hook
+  (hl-line-mode -1))
