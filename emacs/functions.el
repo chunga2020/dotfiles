@@ -12,3 +12,11 @@ If split-lines is supplied, resize the new window using `shrink-window'."
                                                 ; Just pass it along and let
                                                 ; shrink-window handle it
   (vterm (read-from-minibuffer "Enter name for the new terminal buffer: ")))
+
+(defun setup-gui-frame ()
+  "Set options that I prefer to have in GUI frames only."
+  (interactive)
+  (when (display-graphic-p)
+    (progn (telephone-line-mode t)
+           (darkman-mode t)
+           (global-hl-line-mode))))
