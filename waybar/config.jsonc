@@ -64,7 +64,9 @@
     },
     "memory": {
         "interval": 5,
-        "format": "RAM: {used}/{total} GiB ({0}%)"
+        "format": "RAM: {used:.2f} GiB",
+        "tooltip": true,
+        "tooltip-format": "{used}/{total} GiB ({0}%)"
     },
     "temperature": {
         // "thermal-zone": 2,
