@@ -4,5 +4,6 @@
 
 (if (display-graphic-p)
     (progn (telephone-line-mode t)
-           (darkman-mode t))
+           (darkman-mode t)
+           (global-hl-line-mode t))
   (error "Not running in a GUI frame."))
