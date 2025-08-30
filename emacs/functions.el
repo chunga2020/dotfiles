@@ -16,7 +16,8 @@ If split-lines is supplied, resize the new window using `shrink-window'."
 (defun setup-gui-frame ()
   "Set options that I prefer to have in GUI frames only."
   (interactive)
-  (when (display-graphic-p)
+  (if (display-graphic-p (selected-frame))
     (progn (telephone-line-mode t)
            (darkman-mode t)
-           (global-hl-line-mode))))
+           (global-hl-line-mode))
+    (error "Not running in a GUI frame.")))
