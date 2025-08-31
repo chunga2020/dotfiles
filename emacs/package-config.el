@@ -38,6 +38,11 @@
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
 
+;; smart-comment
+(use-package smart-comment
+  :ensure t
+  :bind ("M-;" . smart-comment))
+
 ;; telephone-line
 (use-package telephone-line
   :init

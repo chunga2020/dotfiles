@@ -9,9 +9,10 @@
                                  :documentOnTypeFormattingProvider))
  '(eglot-prefer-plaintext t)
  '(package-selected-packages
-   '(browse-kill-ring company darkman highlight-indent-guides hl-todo magit
-                      magit-todos markdown-mode org-mode telephone-line vterm
-                      winum)))
+   '(ace-window browse-kill-ring cfrs company darkman edit-indirect goto-chg
+                highlight-indent-guides ht hydra iter2 magit-todos markdown-mode
+                mmm-mode nvm pfuture smart-comment ssass-mode telephone-line
+                vterm winum)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
