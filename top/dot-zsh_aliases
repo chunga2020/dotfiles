@@ -7,6 +7,7 @@ alias kill='command kill' # to be sure of which kill I'm using
 # for running make in parallel
 alias makej='make -j$( echo $(( $(nproc)-1 )) )'
 
+alias man='command man --no-justification'
 # for using the glide64 video plugin instead of Rice
 alias m64g='mupen64plus --gfx mupen64plus-video-glide64mk2'
 alias mongo='command mongosh --quiet' # to override regular 'mongo'
