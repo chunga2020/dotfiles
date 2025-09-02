@@ -12,16 +12,16 @@
 ;; company-mode
 (use-package company
   :ensure t
-  :init
-  (global-company-mode)
   :config
+  (global-company-mode)
   (setq
    company-minimum-prefix-length 5
    company-idle-delay 0.1))
 
 ;; darkman
 (use-package darkman
-  :ensure t)
+  :ensure t
+  :if (display-graphic-p))
 
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
@@ -31,8 +31,11 @@
 
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
+  :if (display-graphic-p (selected-frame))
   :config
-  (setq highlight-indent-guides-method 'fill))
+  (setq highlight-indent-guides-method 'fill)
+  :hook
+  (prog-mode))
 
 ;; Minibuffer completion
 ;; let me use spaces normally in the minibuffer
@@ -45,7 +48,8 @@
 
 ;; telephone-line
 (use-package telephone-line
-  :init
+  :if (display-graphic-p (selected-frame))
+  :config
   (setq
    telephone-line-primary-left-separator 'telephone-line-flat
    telephone-line-secondary-left-separator 'telephone-line-flat
@@ -59,15 +63,13 @@
 ;; which-key setup
 (use-package which-key
   :ensure t
-  :init
-  (which-key-mode)
   :config
+  (which-key-mode)
   (setq which-key-popup-type 'minibuffer))
 
 ;; winum mode
 (use-package winum
-  :init
-  (winum-mode 1)
   :config
+  (winum-mode 1)
   (setq
    winum-scope 'frame-local))
