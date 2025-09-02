@@ -30,7 +30,7 @@ albums in sequence in the days up to the show.  ALBUMS should be a list
 of the titles of the albums in question.  This list should have at least
 one element.  DAYS-LEFT should be a non-negative integer corresponding
 to how many days are left before the show."
-  (interactive "XAlbum list: \nnDays left: ")
+  (interactive "XAlbums (lisp list): \nnDays left: ")
   (when (length< albums 2)
     (error "ALBUMS should have at least two elements."))
   (when (<= days-left 0)
