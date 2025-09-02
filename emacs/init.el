@@ -17,7 +17,9 @@
 (load-file (locate-user-emacs-file "editing.el"))
 
 ;; Consolidate backup files
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups"))
+      auto-save-list-file-prefix 'nil
+      auto-save-list-file-name 'nil)
 
 ;; Enable disabled commands
 (put 'upcase-region 'disabled nil)

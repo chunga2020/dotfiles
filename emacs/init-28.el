@@ -120,7 +120,7 @@
 
 
 ;; Consolidation of backup files
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
 
 ;; ######################### Mode-specific Settings ############################
 
