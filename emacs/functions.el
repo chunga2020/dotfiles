@@ -22,6 +22,19 @@ If split-lines is supplied, resize the new window using `shrink-window'."
            (global-hl-line-mode))
     (error "Not running in a GUI frame.")))
 
+(defun read-list (prompt reverse-list)
+  "Read a list of strings from the minibuffer.  PROMPT is the prompt to show.
+REVERSE-LIST, if non-nil, reverses the list after the last element is added."
+  (let ((input nil)
+        (list ()))
+    (while (not (string= input ""))
+      (setq input (read-string (concat prompt " (leave blank to finish): ")))
+      (unless (string= input "")
+        (setq list (cons input list))))
+    (if (not reverse-list)
+        (reverse list)
+      list)))
+
 (defun countdown-which-album (albums days-left)
   "Display which of a band's albums to play.
 
