@@ -9,7 +9,7 @@
                                  :documentOnTypeFormattingProvider))
  '(eglot-prefer-plaintext t)
  '(package-selected-packages
-   '(ace-window browse-kill-ring cfrs company darkman edit-indirect goto-chg
+   '(ace-window browse-kill-ring cfrs company darkman edit-indirect emms goto-chg
                 highlight-indent-guides ht hydra iter2 magit-todos markdown-mode
                 mmm-mode nvm pfuture smart-comment ssass-mode telephone-line
                 vterm winum)))

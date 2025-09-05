@@ -26,6 +26,12 @@
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
 
+;; emms
+(use-package emms
+  :config
+  (emms-all)
+  (setq emms-player-list '(emms-player-mpv)))
+
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
