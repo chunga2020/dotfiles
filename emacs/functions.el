@@ -22,7 +22,7 @@ If split-lines is supplied, resize the new window using `shrink-window'."
            (global-hl-line-mode))
     (error "Not running in a GUI frame.")))
 
-(defun read-list (prompt reverse-list)
+(defun read-list (prompt &optional reverse-list)
   "Read a list of strings from the minibuffer.  PROMPT is the prompt to show.
 REVERSE-LIST, if non-nil, reverses the list after the last element is added."
   (let ((input nil)
