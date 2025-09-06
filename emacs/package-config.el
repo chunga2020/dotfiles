@@ -30,6 +30,7 @@
 (use-package emms
   :config
   (emms-all)
+  (setq-default emms-source-file-default-directory "~/Music")
   (setq emms-player-list '(emms-player-mpv)))
 
 ;; eglot setup
