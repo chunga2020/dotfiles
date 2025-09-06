@@ -2,6 +2,8 @@
  inhibit-startup-screen t
  initial-scratch-message nil)
 
+(darkman-mode t)
+
 (line-number-mode t)
 (column-number-mode t)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)

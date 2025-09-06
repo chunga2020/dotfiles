@@ -18,7 +18,6 @@ If split-lines is supplied, resize the new window using `shrink-window'."
   (interactive)
   (if (display-graphic-p (selected-frame))
     (progn (telephone-line-mode t)
-           (darkman-mode t)
            (global-hl-line-mode))
     (error "Not running in a GUI frame.")))
 
