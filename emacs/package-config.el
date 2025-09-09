@@ -67,6 +67,12 @@
                         (accent . (telephone-line-airline-position-segment)))
    telephone-line-rhs nil))
 
+;; visual-fill-column
+(use-package visual-fill-column
+  :hook
+  (fundamental-mode))                   ; scratch buffers use Fundamental mode
+                                        ; and that’s where I want this to work
+
 ;; which-key setup
 (use-package which-key
   :ensure t
