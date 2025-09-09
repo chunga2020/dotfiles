@@ -4,6 +4,10 @@
                                         ; and I use M-d far more often
 (global-set-key (kbd "C-<delete>") 'delete-region)
 
+;; Having M-z (note lowercase) bound to zap-to-char by default is great, but
+;; it’s nice to be able to easily invoke zap-up-to-char as well
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+
 ;; Default ‘C-h a’ is nice, but it only shows commands.  Removing the binding
 ;; allows me to make ‘C-h a’ a prefix instead.  So now I can drill down.
 (global-unset-key (kbd "C-h a"))
