@@ -16,3 +16,4 @@
 (global-set-key (kbd "C-h a c") 'apropos-command)
 (global-set-key (kbd "C-h a f") 'apropos-function)
 (global-set-key (kbd "C-h a v") 'apropos-variable)
+(global-set-key (kbd "C-h a x") 'apropos-command)
