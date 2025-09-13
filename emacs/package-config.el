@@ -53,20 +53,6 @@
   :ensure t
   :bind ("M-;" . smart-comment))
 
-;; telephone-line
-(use-package telephone-line
-  :if (display-graphic-p (selected-frame))
-  :config
-  (setq
-   telephone-line-primary-left-separator 'telephone-line-flat
-   telephone-line-secondary-left-separator 'telephone-line-flat
-   telephone-line-lhs '((accent . (telephone-line-vc-segment))
-                        (nil . (telephone-line-major-mode-segment))
-                        (accent . (telephone-line-minor-mode-segment))
-                        (nil . (telephone-line-buffer-segment))
-                        (accent . (telephone-line-airline-position-segment)))
-   telephone-line-rhs nil))
-
 ;; visual-fill-column
 (use-package visual-fill-column
   :hook
