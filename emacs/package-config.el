@@ -31,7 +31,10 @@
   :config
   (emms-all)
   (setq-default emms-source-file-default-directory "~/Music")
-  (setq emms-player-list '(emms-player-mpv)))
+  (setq emms-player-list '(emms-player-vlc
+                           emms-player-mpv)
+        emms-player-mpv-parameters
+        (cons "--cdda-speed=1" emms-player-mpv-parameters))
 
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
