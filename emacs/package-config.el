@@ -35,6 +35,8 @@
                            emms-player-mpv)
         emms-player-mpv-parameters
         (cons "--cdda-speed=1" emms-player-mpv-parameters))
+  ;; only show playing time in mode line
+  (emms-mode-line-mode 0)
 
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
