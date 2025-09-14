@@ -17,3 +17,4 @@
 (keymap-global-set  "C-h a f" 'apropos-function)
 (keymap-global-set  "C-h a v" 'apropos-variable)
 (keymap-global-set  "C-h a x" 'apropos-command)
+(keymap-global-set "<AudioPlay>" 'emms-pause)
