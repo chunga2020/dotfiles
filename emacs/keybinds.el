@@ -12,8 +12,8 @@
 ;; allows me to make ‘C-h a’ a prefix instead.  So now I can drill down.
 (global-unset-key (kbd "C-h a"))
 ;; a for "a"ny/"a"ll, for when I don’t know what kind of thing I need
-(global-set-key (kbd "C-h a a") 'apropos)
-(global-set-key (kbd "C-h a c") 'apropos-command)
-(global-set-key (kbd "C-h a f") 'apropos-function)
-(global-set-key (kbd "C-h a v") 'apropos-variable)
-(global-set-key (kbd "C-h a x") 'apropos-command)
+(keymap-global-set  "C-h a a" 'apropos)
+(keymap-global-set  "C-h a c" 'apropos-command)
+(keymap-global-set  "C-h a f" 'apropos-function)
+(keymap-global-set  "C-h a v" 'apropos-variable)
+(keymap-global-set  "C-h a x" 'apropos-command)
