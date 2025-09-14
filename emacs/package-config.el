@@ -30,7 +30,7 @@
 (use-package emms
   :config
   (emms-all)
-  (setq-default emms-source-file-default-directory "~/Music")
+  (setq-default emms-source-file-default-directory "~/Music/flac/")
   (setq emms-player-list '(emms-player-vlc
                            emms-player-mpv)
         emms-player-mpv-parameters
@@ -38,6 +38,7 @@
   ;; only show playing time in mode line
   (emms-mode-line-mode 0)
 
+  (emms-add-directory-tree "~/Music/yt-dlp/")
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
