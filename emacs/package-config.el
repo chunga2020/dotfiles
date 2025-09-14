@@ -38,7 +38,11 @@
   ;; only show playing time in mode line
   (emms-mode-line-mode 0)
 
+  (emms-add-directory-tree emms-source-file-default-directory)
   (emms-add-directory-tree "~/Music/yt-dlp/")
+  (emms-playlist-current-clear))
+
+
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
