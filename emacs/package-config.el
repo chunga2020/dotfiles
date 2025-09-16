@@ -39,11 +39,12 @@
   (emms-add-directory-tree emms-source-file-default-directory)
   (emms-add-directory-tree "~/Music/yt-dlp/")
   (emms-playlist-current-clear)
-  :bind (("C-c e n" . emms-next)
+  :bind (("C-c e l" . emms-toggle-repeat-playlist)
+         ("C-c e n" . emms-next)
          ("C-c e p" . emms-previous)
          ("C-c e r" . emms-toggle-repeat-track)
-         ("C-c e R" . emms-toggle-repeat-playlist)
-         ("C-c e s" . emms-stop)))
+         ("C-c e s" . emms-stop)
+         ("C-c e <SPC>" . emms-pause)))
 
 (use-package emms-mode-line-cycle
   :after emms
