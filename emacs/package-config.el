@@ -40,7 +40,12 @@
 
   (emms-add-directory-tree emms-source-file-default-directory)
   (emms-add-directory-tree "~/Music/yt-dlp/")
-  (emms-playlist-current-clear))
+  (emms-playlist-current-clear)
+  :bind (("C-c e n" . emms-next)
+         ("C-c e p" . emms-previous)
+         ("C-c e r" . emms-toggle-repeat-track)
+         ("C-c e R" . emms-toggle-repeat-playlist)
+         ("C-c e s" . emms-stop)))
 
 
 ;; eglot setup
