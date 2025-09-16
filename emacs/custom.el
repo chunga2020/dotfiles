@@ -9,10 +9,10 @@
                                  :documentOnTypeFormattingProvider))
  '(eglot-prefer-plaintext t)
  '(package-selected-packages
-   '(ace-window browse-kill-ring cfrs company darkman edit-indirect emms goto-chg
-                highlight-indent-guides ht hydra iter2 magit-todos markdown-mode
-                mmm-mode nvm pfuture smart-comment ssass-mode visual-fill-column
-                vterm winum)))
+   '(ace-window browse-kill-ring cfrs company darkman edit-indirect emms
+                emms-mode-line-cycle goto-chg highlight-indent-guides ht hydra
+                iter2 magit-todos markdown-mode mmm-mode nvm pfuture
+                smart-comment ssass-mode visual-fill-column vterm winum)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

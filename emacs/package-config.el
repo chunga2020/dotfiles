@@ -35,8 +35,6 @@
                            emms-player-mpv)
         emms-player-mpv-parameters
         (cons "--cdda-speed=1" emms-player-mpv-parameters))
-  ;; only show playing time in mode line
-  (emms-mode-line-mode 0)
 
   (emms-add-directory-tree emms-source-file-default-directory)
   (emms-add-directory-tree "~/Music/yt-dlp/")
@@ -46,6 +44,12 @@
          ("C-c e r" . emms-toggle-repeat-track)
          ("C-c e R" . emms-toggle-repeat-playlist)
          ("C-c e s" . emms-stop)))
+
+(use-package emms-mode-line-cycle
+  :after emms
+  :config
+  (setq emms-mode-line-cycle-max-width 40
+        emms-mode-line-cycle-velocity 8))
 
 
 ;; eglot setup
