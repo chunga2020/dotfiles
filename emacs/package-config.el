@@ -117,7 +117,7 @@ signalling that the entry is complete and the buffer is no longer needed."
   :ensure t
   :config
   (which-key-mode)
-  (setq which-key-popup-type 'minibuffer))
+  (setq which-key-popup-type 'side-window))
 
 ;; winum mode
 (use-package winum
