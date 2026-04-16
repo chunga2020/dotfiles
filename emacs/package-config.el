@@ -69,6 +69,38 @@
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
 
+(defun my-org-journal-save (&optional arg)
+  "Save an org-journal entry.
+
+If ARG is non-nil, kills the buffer.  The intention is that this
+function can be invoked periodically without an argument while writing
+an entry to save normally, while the final invocation has an argument,
+signalling that the entry is complete and the buffer is no longer needed."
+  (interactive "p")
+  (save-buffer)
+
+  ;; Just checking for arg isn’t enough, because it is always implicitly set.
+  ;; Therefore, we need to check if it’s got a value other than the default.
+  ;; Using C-u for the universal argument gives it a value of 4, so we can just
+  ;; check if it’s greater than 1, which 4 is
+  (when (> arg 1)
+    (kill-buffer)))
+
+;; org-journal
+(use-package org-journal
+  :init
+  (setq org-journal-prefix-key "C-c j ")
+  :config
+  (setq org-journal-dir "~/Documents/org/journal"
+        org-journal-file-format "%Y/%m/%d"
+        org-journal-find-file-fn 'find-file
+        org-extend-today-until 5
+        org-journal-date-format "%A %F")
+  :bind (:map org-journal-mode-map
+              ("C-x C-s" . my-org-journal-save)))
+(add-hook 'org-journal-mode-hook #'flyspell-mode)
+(add-hook 'org-journal-mode-hook #'visual-line-mode)
+
 ;; smart-comment
 (use-package smart-comment
   :ensure t
