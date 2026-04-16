@@ -39,20 +39,20 @@
   (emms-add-directory-tree emms-source-file-default-directory)
   (emms-add-directory-tree "~/Music/yt-dlp/")
   (emms-playlist-current-clear)
-  :bind (("C-c e b" . emms-browser)
-         ("C-c e l" . emms-toggle-repeat-playlist)
+  :bind (("C-c e b" . emms-smart-browse)
          ("C-c e n" . emms-next)
          ("C-c e p" . emms-previous)
-         ("C-c e r" . emms-toggle-repeat-track)
+         ("C-c e r l" . emms-toggle-repeat-playlist)
+         ("C-c e r t" . emms-toggle-repeat-track)
          ("C-c e s" . emms-stop)
          ("C-c e <SPC>" . emms-pause)))
 
 (use-package emms-mode-line-cycle
   :after emms
   :config
-  (setq emms-mode-line-cycle-max-width 40
-        emms-mode-line-cycle-velocity 8))
-
+  (setq emms-mode-line-cycle-max-width 20
+        emms-mode-line-cycle-velocity 8)
+  (emms-mode-line-cycle 1))
 
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
