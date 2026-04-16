@@ -107,9 +107,9 @@ signalling that the entry is complete and the buffer is no longer needed."
   :bind ("M-;" . smart-comment))
 
 ;; visual-fill-column
-(use-package visual-fill-column
-  :hook
-  (fundamental-mode))                   ; scratch buffers use Fundamental mode
+(add-hook 'fundamental-mode-hook #'visual-line-mode)
+(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+                                        ; scratch buffers use Fundamental mode
                                         ; and that’s where I want this to work
 
 ;; which-key setup
