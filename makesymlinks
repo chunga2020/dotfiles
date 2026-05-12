@@ -28,26 +28,19 @@ darkmandir=$configdir/darkman
 darkmanscriptsdir=/$home/.local/share
 dunstdir=$configdir/dunst
 emacsdir=$configdir/emacs
-i3dir=$configdir/i3
-i3sdir=$configdir/i3status
-picomdir=$configdir/picom
-rofidir=$configdir/rofi
-swaydir=$configdir/sway
-waybardir=$configdir/waybar
 ytdlpdir=$configdir/yt-dlp
-zathuradir=$configdir/zathura
 
 echo "Changing to $dir..."
 # Doesn't matter where we are in the moment
 pushd $dir
 echo -e "...Done\n"
 
-packs="alacritty darkman darkman_scripts dunst emacs i3 i3status picom rofi sway top vim waybar yt-dlp zathura"
+packs="alacritty darkman darkman_scripts dunst emacs top vim yt-dlp"
 for pack in $packs; do
     cp -Rv $pack $olddir
 done
 
-for dir in $alacrittydir $darkmandir $darkmanscriptsdir $emacsdir $i3dir $i3sdir $picomdir $rofidir $swaydir $waybardir $ytdlpdir $zathuradir; do
+for dir in $alacrittydir $darkmandir $darkmanscriptsdir $emacsdir $ytdlpdir; do
     if [[ ! -d $dir ]]; then
         mkdir -p $dir
     fi
@@ -61,14 +54,7 @@ stow --verbose --target $darkmandir darkman
 stow --verbose --target $darkmanscriptsdir darkman_scripts
 stow --verbose --target $dunstdir dunst
 stow --verbose --target $emacsdir emacs
-stow -v -t $picomdir picom
-stow -v -t $rofidir rofi
-stow --verbose --target $swaydir sway
-stow -v -t $i3dir i3
-stow -v -t $i3sdir i3status
-stow --verbose --target $waybardir waybar
 stow --verbose --target $ytdlpdir yt-dlp
-stow -v -t $zathuradir zathura
 
 echo -e "\nGoing back to previous dir..."
 popd
