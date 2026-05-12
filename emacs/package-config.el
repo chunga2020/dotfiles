@@ -99,7 +99,9 @@ signalling that the entry is complete and the buffer is no longer needed."
         org-journal-find-file-fn 'find-file
         org-extend-today-until 5
         org-journal-date-format "%A %F")
-  :bind (:map org-journal-mode-map
+  :bind (("C-c j n" . org-journal-new-entry)
+         ("C-c j t" . org-journal-open-current-journal-file)
+         :map org-journal-mode-map
               ("C-x C-s" . my-org-journal-save)))
 (add-hook 'org-journal-mode-hook #'flyspell-mode)
 (add-hook 'org-journal-mode-hook #'visual-line-mode)
