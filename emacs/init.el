@@ -5,11 +5,6 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
- '(package-selected-packages
-   '(browse-kill-ring company darkman highlight-indent-guides hl-todo magit
-                      magit-todos markdown-mode org-mode telephone-line vterm
-                      winum))
-
 ;; Interface options
 (load-file (locate-user-emacs-file "interface.el"))
 

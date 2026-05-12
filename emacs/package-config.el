@@ -9,15 +9,6 @@
 ;; compilation setup
 (setq compilation-scroll-output 'first-error)
 
-;; company-mode
-(use-package company
-  :ensure t
-  :config
-  (global-company-mode)
-  (setq
-   company-minimum-prefix-length 5
-   company-idle-delay 0.1))
-
 ;; darkman
 (use-package darkman
   :ensure t
@@ -69,6 +60,18 @@
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
 
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+(use-package org
+  :config
+  (setq org-hide-leading-stars t))
+
+(use-package org-superstar
+  :hook
+  (org-mode . (lambda () (org-superstar-mode 1))))
+
 (defun my-org-journal-save (&optional arg)
   "Save an org-journal entry.
 
@@ -111,6 +114,13 @@ signalling that the entry is complete and the buffer is no longer needed."
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
                                         ; scratch buffers use Fundamental mode
                                         ; and that’s where I want this to work
+
+;; vertico
+(use-package vertico
+  :init
+  (vertico-mode)
+  :config
+  (setq vertico-count 15))
 
 ;; which-key setup
 (use-package which-key
