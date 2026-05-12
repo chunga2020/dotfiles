@@ -3,6 +3,7 @@ alias btcpon='bluetoothctl power on'
 alias cosmic="command start-cosmic > /dev/null 2>&1"
 alias env='command env | sort' # env doesn't sort output by default, which is weird
 alias kill='command kill' # to be sure of which kill I'm using
+alias kmscon-cosmic='kmscon-launch-gui start-cosmic'
 
 # for running make in parallel
 alias makej='make -j$( echo $(( $(nproc)-1 )) )'
