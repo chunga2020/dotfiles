@@ -12,6 +12,8 @@
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 
+(savehist-mode)
+
 ;; no gui toolbars or scrollbar
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
