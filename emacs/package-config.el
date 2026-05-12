@@ -12,7 +12,9 @@
 ;; darkman
 (use-package darkman
   :ensure t
-  :if (display-graphic-p))
+  :if (display-graphic-p)
+  :config
+  (setq darkman-themes '(:light modus-operandi-tinted :dark modus-vivendi-tinted)))
 
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
