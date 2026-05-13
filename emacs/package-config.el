@@ -50,6 +50,11 @@
 ;; eglot setup
 (setq eglot-events-buffer-size 0)
 
+;; hide-mode-line
+(use-package hide-mode-line
+  :hook
+  (vterm-mode . hide-mode-line-mode))
+
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
   :if (display-graphic-p (selected-frame))
