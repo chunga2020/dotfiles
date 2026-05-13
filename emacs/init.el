@@ -5,6 +5,9 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Packages
+(load-file (locate-user-emacs-file "package-config.el"))
+
 ;; Interface options
 (load-file (locate-user-emacs-file "interface.el"))
 
@@ -23,9 +26,6 @@
 
 ;; Keybinds
 (load-file (locate-user-emacs-file "keybinds.el"))
-
-;; Packages
-(load-file (locate-user-emacs-file "package-config.el"))
 
 ;; Mode-specific settings
 (load-file (locate-user-emacs-file "mode-config.el"))
