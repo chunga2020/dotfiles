@@ -23,4 +23,5 @@ if [[ "${gpu_on}" = "on" ]]; then
     esac
 fi
 
+protonvpn connect --city boston 2> /dev/null
 arch-upgrade-reminder
