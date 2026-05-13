@@ -17,4 +17,5 @@ alias run0="command run0 --background=''"
 alias sway='command sway --unsupported-gpu'
 alias sd-reboot-windows="systemctl reboot --boot-loader-entry=auto-windows"
 alias time='command time -p'
+alias ttyemacs='emacsclient -nw'
 alias valgrind-check='command valgrind --show-error-list=yes --leak-check=full --show-leak-kinds=all --error-exitcode=1'
