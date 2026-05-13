@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(browse-kill-ring company darkman emms-mode-line-cycle hide-mode-line
+   '(browse-kill-ring company darkman elfeed emms-mode-line-cycle hide-mode-line
                       highlight-indent-guides magit marginalia markdown-mode
                       org-journal org-superstar smart-comment vertico
                       visual-fill-column vterm winum)))
