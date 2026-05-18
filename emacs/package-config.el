@@ -87,6 +87,11 @@
   :init
   (marginalia-mode))
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic)))
+
 (use-package org
   :config
   (setq org-hide-leading-stars t))
