@@ -9,6 +9,13 @@
 ;; compilation setup
 (setq compilation-scroll-output 'first-error)
 
+;; corfu
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :config
+  (keymap-unset corfu-map "RET"))
+
 ;; darkman
 (use-package darkman
   :ensure t
