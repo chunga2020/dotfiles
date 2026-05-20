@@ -30,7 +30,8 @@
 (use-package elfeed
   :config
   (setq elfeed-feeds '("https://archlinux.org/feeds/news"
-                      "https://proton.me/blog/feed"))
+                       "https://proton.me/blog/feed"
+                       "https://xkcd.com/rss.xml"))
   (setq-default elfeed-search-filter "@1-week-ago ")
   :hook
   (elfeed-search-mode . elfeed-update))
