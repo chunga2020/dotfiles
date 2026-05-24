@@ -51,6 +51,13 @@
    (text-mode . display-line-numbers-mode)
    (text-mode . hl-line-mode)))
 
+;; eglot
+(use-package eglot
+  :config
+  (setq eglot-ignored-server-capabilities '(:documentFormattingProvider
+                                            :documentOnTypeFormattingProvider
+                                            :inlayHintProvider)))
+
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
 
