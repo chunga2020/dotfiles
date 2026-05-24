@@ -8,9 +8,6 @@
 ;; Packages
 (load-file (locate-user-emacs-file "package-config.el"))
 
-;; Interface options
-(load-file (locate-user-emacs-file "interface.el"))
-
 ;; Text editing options
 (load-file (locate-user-emacs-file "editing.el"))
 
@@ -26,9 +23,6 @@
 
 ;; Keybinds
 (load-file (locate-user-emacs-file "keybinds.el"))
-
-;; Mode-specific settings
-(load-file (locate-user-emacs-file "mode-config.el"))
 
 ;; Useful functions
 (load-file (locate-user-emacs-file "functions.el"))

@@ -23,6 +23,34 @@
   :config
   (setq darkman-themes '(:light modus-operandi-tinted :dark modus-vivendi-tinted)))
 
+;; standard emacs settings
+(use-package emacs
+  :config
+  (setq-default fill-column 80)
+  (electric-pair-mode t)
+  (line-number-mode t)
+  (column-number-mode t)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (savehist-mode)
+  (darkman-mode)
+  (setq
+   electric-pair-delete-adjacent-pairs t
+   indent-tabs-mode nil
+   inhibit-startup-screen t
+   initial-scratch-message nil
+   require-final-newline t
+   tab-width 4)
+  :hook
+  ((prog-mode . display-fill-column-indicator-mode)
+   (prog-mode . display-line-numbers-mode)
+   (prog-mode . hs-minor-mode)
+   (prog-mode . hl-line-mode)
+   (text-mode . display-fill-column-indicator-mode)
+   (text-mode . display-line-numbers-mode)
+   (text-mode . hl-line-mode)))
+
 ;; eldoc
 (setq eldoc-echo-area-prefer-doc-buffer t)
 
@@ -88,13 +116,20 @@
   :init
   (marginalia-mode))
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :config (setq markdown-command "pandoc"))
+
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless basic)))
 
 (use-package org
+  :ensure t
   :config
+  (electric-quote-mode 1)
   (setq org-hide-leading-stars t))
 
 (use-package org-superstar
@@ -140,6 +175,13 @@ signalling that the entry is complete and the buffer is no longer needed."
   :ensure t
   :bind ("M-;" . smart-comment))
 
+;; Text mode
+(use-package text-mode
+  :config
+  ;; Always hard-wrap text in text mode
+  (turn-on-auto-fill)
+  (flyspell-mode))
+
 ;; visual-fill-column
 (add-hook 'fundamental-mode-hook #'visual-line-mode)
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
@@ -152,6 +194,11 @@ signalling that the entry is complete and the buffer is no longer needed."
   (vertico-mode)
   :config
   (setq vertico-count 15))
+
+;; VTerm mode
+(use-package vterm
+  :config
+  (hl-line-mode -1))
 
 ;; which-key setup
 (use-package which-key
