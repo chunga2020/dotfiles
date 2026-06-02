@@ -173,9 +173,11 @@ signalling that the entry is complete and the buffer is no longer needed."
   :bind (("C-c j n" . org-journal-new-entry)
          ("C-c j t" . org-journal-open-current-journal-file)
          :map org-journal-mode-map
-              ("C-x C-s" . my-org-journal-save)))
-(add-hook 'org-journal-mode-hook #'flyspell-mode)
-(add-hook 'org-journal-mode-hook #'visual-line-mode)
+         ("C-x C-s" . my-org-journal-save))
+  :hook
+  (org-journal-mode . flyspell-mode)
+  (org-journal-mode . org-indent-mode)
+  (org-journal-mode . visual-line-mode))
 
 ;; smart-comment
 (use-package smart-comment
