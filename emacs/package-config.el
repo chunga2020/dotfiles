@@ -107,6 +107,11 @@
   :hook
   (vterm-mode . hide-mode-line-mode))
 
+;; hl-todo mode
+(use-package hl-todo
+  :hook
+  (prog-mode . global-hl-todo-mode))
+
 ;; highlight-indent-guides mode
 (use-package highlight-indent-guides
   :if (display-graphic-p (selected-frame))
