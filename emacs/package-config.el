@@ -192,9 +192,11 @@ signalling that the entry is complete and the buffer is no longer needed."
 ;; Text mode
 (use-package text-mode
   :config
+  (setq-default ispell-dictionary "en_US")
+  :hook
   ;; Always hard-wrap text in text mode
-  (turn-on-auto-fill)
-  (flyspell-mode))
+  (text-mode . auto-fill-mode)
+  (text-mode . flyspell-mode))
 
 ;; visual-fill-column
 (add-hook 'fundamental-mode-hook #'visual-line-mode)
