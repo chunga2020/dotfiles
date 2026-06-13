@@ -182,7 +182,10 @@ signalling that the entry is complete and the buffer is no longer needed."
   :hook
   (org-journal-mode . flyspell-mode)
   (org-journal-mode . org-indent-mode)
-  (org-journal-mode . visual-line-mode))
+  (org-journal-mode . visual-line-mode)
+
+  ;; org-journal is one of few text modes I don’t want hard-wrapping
+  (org-journal-mode . turn-off-auto-fill))
 
 ;; smart-comment
 (use-package smart-comment
