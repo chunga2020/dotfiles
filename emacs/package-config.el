@@ -199,6 +199,7 @@ signalling that the entry is complete and the buffer is no longer needed."
   (text-mode . flyspell-mode))
 
 ;; visual-fill-column
+(use-package visual-fill-column)
 (add-hook 'fundamental-mode-hook #'visual-line-mode)
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
                                         ; scratch buffers use Fundamental mode
