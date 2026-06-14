@@ -33,6 +33,7 @@
   (tool-bar-mode -1)
   (savehist-mode)
   (darkman-mode)
+  (electric-quote-mode)
   (setq
    electric-pair-delete-adjacent-pairs t
    indent-tabs-mode nil
@@ -139,7 +140,6 @@
 ;; Org mode
 ;; Need to do this outside of `use-package' to avoid "org version mismatch"
 (setq org-hide-leading-stars t)
-(add-hook 'org-mode-hook 'electric-quote-mode)
 
 (use-package org-superstar
   :hook
