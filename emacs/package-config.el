@@ -1,7 +1,6 @@
 
 ;; browse-kill-ring setup
 (use-package browse-kill-ring
-  :ensure t
   :config
   (global-set-key (kbd "C-c k") 'browse-kill-ring))
 (setq kill-do-not-save-duplicates t)
@@ -18,7 +17,6 @@
 
 ;; darkman
 (use-package darkman
-  :ensure t
   :if (display-graphic-p)
   :config
   (setq darkman-themes '(:light modus-operandi-tinted :dark modus-vivendi-tinted)))
@@ -124,25 +122,24 @@
 ;; let me use spaces normally in the minibuffer
 (define-key minibuffer-local-completion-map " " 'self-insert-command)
 
+(use-package magit)
+
 (use-package marginalia
   :init
   (marginalia-mode))
 
 (use-package markdown-mode
-  :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
   :config (setq markdown-command "pandoc"))
 
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless basic)))
 
-(use-package org
-  :ensure t
-  :config
-  (electric-quote-mode 1)
-  (setq org-hide-leading-stars t))
+;; Org mode
+;; Need to do this outside of `use-package' to avoid "org version mismatch"
+(setq org-hide-leading-stars t)
+(add-hook 'org-mode-hook 'electric-quote-mode)
 
 (use-package org-superstar
   :hook
@@ -189,11 +186,11 @@ signalling that the entry is complete and the buffer is no longer needed."
 
 ;; smart-comment
 (use-package smart-comment
-  :ensure t
   :bind ("M-;" . smart-comment))
 
 ;; Text mode
 (use-package text-mode
+  :straight nil
   :config
   (setq-default ispell-dictionary "en_US")
   :hook
@@ -221,7 +218,6 @@ signalling that the entry is complete and the buffer is no longer needed."
 
 ;; which-key setup
 (use-package which-key
-  :ensure t
   :config
   (which-key-mode)
   (setq which-key-popup-type 'side-window))
