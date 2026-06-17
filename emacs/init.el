@@ -17,6 +17,11 @@
   (load bootstrap-file nil 'nomessage))
 (setq straight-use-package-by-default t)
 
+;; disable package.el functionality because it conflicts with straight.el
+(put 'package-refresh-contents 'disabled t)
+(put 'package-install 'disabled t)
+(put 'package-upgrade 'disabled t)
+
 ;; Packages
 (load-file (locate-user-emacs-file "package-config.el"))
 
