@@ -1,6 +1,7 @@
 (("browse-kill-ring" . "39d65a830b93530c9bd68a7dc14353cbffd1d01f")
  ("compat" . "ac70b4d347fe22bcd0228c763bf804673086a621")
  ("cond-let" . "21b9e9835756ff5cd1acb971cf9eb56fff671c8b")
+ ("consult" . "540ad1e59ef80b1c8dd712cbbaae8957533ad02c")
  ("corfu" . "4a9c67da16eb64cadaa4bfcc16713188145c83da")
  ("darkman.el" . "ee99dfcdc1f48330d0fbb565f8db7664eee34643")
  ("dash.el" . "d3a84021dbe48dba63b52ef7665651e0cf02e915")

@@ -8,6 +8,17 @@
 ;; compilation setup
 (setq compilation-scroll-output 'first-error)
 
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("M-y" . consult-yank-pop)
+         ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
+         ("M-s l" . consult-line)
+         :map minibuffer-local-map
+         ("M-s" . consult-history)
+         ("M-r" . consult-history)))
+
 ;; corfu
 (use-package corfu
   :init
