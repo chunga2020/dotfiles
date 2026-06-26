@@ -11,9 +11,21 @@
 ;; Default ‘C-h a’ is nice, but it only shows commands.  Removing the binding
 ;; allows me to make ‘C-h a’ a prefix instead.  So now I can drill down.
 (global-unset-key (kbd "C-h a"))
-;; a for "a"ny/"a"ll, for when I don’t know what kind of thing I need
-(keymap-global-set  "C-h a a" 'apropos)
-(keymap-global-set  "C-h a c" 'apropos-command)
-(keymap-global-set  "C-h a f" 'apropos-function)
-(keymap-global-set  "C-h a v" 'apropos-variable)
-(keymap-global-set  "C-h a x" 'apropos-command)
+
+;; taken from https://yavchn.parkscomputing.com/hn/s/48535886
+(defvar-keymap help-apropos-map
+  :doc "Keymap for apropos subcommands."
+  "a"   #'apropos
+  "l"   #'apropos-library
+  "f"   #'apropos-function
+  "x"   #'apropos-command
+  "v"   #'apropos-variable
+  "V"   #'apropos-local-variable
+  "u"   #'apropos-user-option
+  "d"   #'apropos-documentation
+  "C-f" #'customize-apropos-faces
+  "g"   #'customize-apropos-groups
+  "o"   #'customize-apropos-options
+  "c"   #'customize-apropos
+  "i"   #'info-apropos)
+(keymap-set help-map "a" help-apropos-map)
