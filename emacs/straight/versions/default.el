@@ -37,6 +37,7 @@
  ("straight.el" . "e40a5b7f8b0c1bb2cde0e7e477b5f81303e34b95")
  ("transient" . "1856230dc181f23dd15026b0ad21d8b299b034d1")
  ("vertico" . "6028bd3d32c99c28e2b938e5e5393ec3508d2424")
+ ("visual-fill-column" . "e1be9a1545157d24454d950c0ac79553c540edb7")
  ("with-editor" . "ce92867c6d51e8a218915d262ba4d7255e111686")
  ("xref" . "bd31f9ac86a105c01631b29e6f442049500e9928"))
 :epsilon
