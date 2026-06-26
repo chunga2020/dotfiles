@@ -74,12 +74,13 @@
 ;; elfeed
 (use-package elfeed
   :config
-  (setq elfeed-feeds '("https://archlinux.org/feeds/news"
-                       "https://proton.me/blog/feed"
-                       "https://xkcd.com/rss.xml"))
+  (setq elfeed-feeds '(("https://archlinux.org/feeds/news" :title "Arch Linux News")
+                       ("https://proton.me/blog/feed")
+                       ("https://xkcd.com/rss.xml" :title "XKCD"))
+        elfeed-entry-point 'elfeed-tree)
   (setq-default elfeed-search-filter "@1-week-ago ")
   :hook
-  (elfeed-search-mode . elfeed-update))
+  (elfeed-tree-mode . elfeed-update))
 
 ;; emms
 (use-package emms
